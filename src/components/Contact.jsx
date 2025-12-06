@@ -61,7 +61,7 @@ const Contact = () => {
     <section
       ref={containerRef}
       id="contact"
-      className="relative pt-36 min-h-screen my-auto overflow-hidden font-display bg-background-light dark:bg-background-dark text-gray-800 dark:text-gray-200"
+      className="relative pt-36 overflow-hidden font-display bg-background-light dark:bg-background-dark text-gray-800 dark:text-gray-200"
     >
       {/* BACKGROUND PARTICLES */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -81,7 +81,7 @@ const Contact = () => {
         <div className="max-w-7xl w-full mx-auto">
 
           {/* HEADER */}
-          <header className="mb-12 lg:mb-20 relative text-right">
+          <header className="mb-12 lg:mb-20 relative text-center">
             <h1
               aria-hidden="true"
               className="
@@ -94,7 +94,7 @@ const Contact = () => {
               Contact
             </h1>
 
-            <h2 className="contact-header text-4xl sm:text-5xl lg:text-6xl font-bold text-black dark:text-white">
+            <h2 className="contact-header text-3xl sm:text-4xl md:text-5xl font-bold text-black dark:text-white">
               {"{Get In Touch}"}
             </h2>
 

@@ -68,7 +68,7 @@ const Skills = () => {
   return (
     <section
       ref={containerRef}
-      className="relative pt-36 font-display bg-background-light dark:bg-background-dark text-gray-800 dark:text-gray-200 overflow-hidden"
+      className="relative pt-36 container mx-auto font-display bg-background-light dark:bg-background-dark text-gray-800 dark:text-gray-200 overflow-hidden"
     >
   {/* Background Particles */}
       <div className="absolute inset-0 z-10 pointer-events-none">
@@ -89,7 +89,7 @@ const Skills = () => {
           {/* <div className="skills-header inline-flex items-center justify-center text-black dark:text-white mb-4">
             <span className="material-icons-outlined text-4xl">code</span>
           </div> */}
-          <h2 className="skills-header  text-4xl sm:text-5xl font-bold text-black dark:text-white mb-2">{"[Skills]"}</h2>
+          <h2 className="skills-header  text-3xl sm:text-4xl md:text-5xl font-bold text-black dark:text-white mb-2">{"[Skills]"}</h2>
           <p className="skills-header text-gray-600 dark:text-gray-400 mb-10">I am striving to never stop learning and improving_</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
 

@@ -57,11 +57,11 @@ const About = () => {
 
       {/* Title */}
       <div className="mb-14">
-        <h2 className="text-5xl font-extrabold text-gray-900 dark:text-white">
+        <h2 className="contact-header text-3xl sm:text-4xl md:text-5xl font-bold text-center text-black dark:text-white">
           {"<About Me/>"}
         </h2>
-        <p className="text-gray-500 dark:text-gray-400 mt-2 text-lg">
-          My Introduction
+        <p className="text-gray-500 dark:text-gray-400 mt-2 text-lg text-center">
+          My Introduction_
         </p>
       </div>
 
