@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import ProjectCard from "./ProjextCard";
+import ProjectCard from "./ProjectCard";
 import bepaw from "../assets/bepaw.png";
 import plateShare from "../assets/plateshare.png";
 import bloodBank from "../assets/bloodbank.png";
