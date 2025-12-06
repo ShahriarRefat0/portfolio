@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<section class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-200 font-sans">
+  <div class="relative min-h-screen overflow-x-hidden">
+    <header class="absolute top-0 left-0 right-0 z-10">
+      <nav class="container mx-auto px-6 py-8 flex justify-between items-center">
+        <div class="flex items-center space-x-3">
+          <div class="bg-primary p-2 rounded-full">
+            <svg class="h-6 w-6 text-background-dark" fill="currentColor" viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M12 2C9.24 2 7 4.24 7 7C7 9.31 8.35 11.23 10.13 12.11C9.44 12.04 8.71 12 8 12C4.13 12 1 15.13 1 19V21H15V19C15 15.13 11.87 12 8 12C8.32 12 8.64 12.03 8.95 12.08C10.59 10.45 12.87 9.42 15.42 9.12C15.75 8.44 16 7.68 16 6.89C16 4.19 13.81 2 11.11 2H12M12 4C12.55 4 13 4.45 13 5C13 5.55 12.55 6 12 6C11.45 6 11 5.55 11 5C11 4.45 11.45 4 12 4M8 14C10.76 14 13 16.24 13 19V19.08L8.95 19C8.64 18.97 8.32 19 8 19H3V19C3 16.24 5.24 14 8 14M23 15V17H20V15H23M23 18V20H20V18H23M23 12V14H17V12H23Z">
+              </path>
+            </svg>
+          </div>
+          <span class="text-2xl font-bold font-display text-slate-100">Reeni</span>
+        </div>
+        <div class="hidden lg:flex items-center space-x-8">
+          <a class="text-sm font-medium text-slate-100 hover:text-primary transition-colors" href="#">Home</a>
+          <a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="#">About</a>
+          <a class="flex items-center text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="#">
+            Services
+            <span class="material-icons-outlined text-base ml-1">expand_more</span>
+          </a>
+          <a class="flex items-center text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="#">
+            Blog
+            <span class="material-icons-outlined text-base ml-1">expand_more</span>
+          </a>
+          <a class="flex items-center text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="#">
+            Project
+            <span class="material-icons-outlined text-base ml-1">expand_more</span>
+          </a>
+          <a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="#">Contact</a>
+        </div>
+        <div class="flex items-center space-x-4">
+          <div class="hidden md:flex items-center space-x-2">
+            <a class="w-9 h-9 flex items-center justify-center bg-white/10 dark:bg-white/10 rounded-full text-slate-300 hover:bg-primary hover:text-background-dark transition-colors"
+              href="#">
+              <svg aria-hidden="true" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                <path clip-rule="evenodd"
+                  d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.012-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 016.08 2.525c.636-.247 1.363-.416 2.427-.465C9.53 2.013 9.884 2 12.315 2zM12 0C9.58 0 9.22.01 8.21.058a6.903 6.903 0 00-2.31.46c-.92.358-1.7.85-2.42 1.57a6.9 6.9 0 00-1.57 2.42c-.358.92-.46 1.7-.46 2.31C.01 9.22 0 9.58 0 12s.01 2.78.058 3.79a6.903 6.903 0 00.46 2.31c.358.92.85 1.7 1.57 2.42a6.9 6.9 0 002.42 1.57c.92.358 1.7.46 2.31.46C9.22 23.99 9.58 24 12 24s2.78-.01 3.79-.058a6.903 6.903 0 002.31-.46c.92-.358 1.7-.85 2.42-1.57a6.9 6.9 0 001.57-2.42c.358-.92.46-1.7.46-2.31C23.99 14.78 24 14.42 24 12s-.01-2.78-.058-3.79a6.903 6.903 0 00-.46-2.31 6.9 6.9 0 00-1.57-2.42 6.9 6.9 0 00-2.42-1.57c-.92-.358-1.7-.46-2.31-.46C14.78.01 14.42 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"
+                  fill-rule="evenodd"></path>
+              </svg>
+            </a>
+            <a class="w-9 h-9 flex items-center justify-center bg-white/10 dark:bg-white/10 rounded-full text-slate-300 hover:bg-primary hover:text-background-dark transition-colors"
+              href="#">
+              <svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z">
+                </path>
+              </svg>
+            </a>
+            <a class="w-9 h-9 flex items-center justify-center bg-white/10 dark:bg-white/10 rounded-full text-slate-300 hover:bg-primary hover:text-background-dark transition-colors"
+              href="#">
+              <svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616v.064c0 2.298 1.634 4.218 3.8 4.654-.7.192-1.447.248-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z">
+                </path>
+              </svg>
+            </a>
+            <a class="w-9 h-9 flex items-center justify-center bg-white/10 dark:bg-white/10 rounded-full text-slate-300 hover:bg-primary hover:text-background-dark transition-colors"
+              href="#">
+              <svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z">
+                </path>
+              </svg>
+            </a>
+          </div>
+          <button
+            class="w-11 h-11 flex lg:hidden items-center justify-center bg-primary rounded-full text-background-dark">
+            <span class="material-icons-outlined">menu</span>
+          </button>
+        </div>
+      </nav>
+    </header>
+    <main class="container mx-auto px-6 pt-32 pb-16 lg:pt-0 lg:pb-0">
+      <div class="grid lg:grid-cols-2 items-center min-h-screen gap-12">
+        <div class="text-center lg:text-left">
+          <span class="text-primary font-bold uppercase tracking-wider">Web Developer</span>
+          <h1 class="font-display text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black mt-2 text-slate-200">
+            Jackson Clark
+          </h1>
+          <p class="max-w-md mx-auto lg:mx-0 mt-6 text-slate-400">
+            Outsourcing can provide corporate businesses with several advantages, including business. Outsourcing can
+            provide.
+          </p>
+          <a class="inline-flex items-center justify-center bg-primary text-background-dark font-bold px-8 py-4 rounded-full mt-10 hover:bg-yellow-300 transition-colors group"
+            href="#">
+            View Portfolio
+            <span
+              class="material-icons-outlined ml-2 transform group-hover:translate-x-1 transition-transform">arrow_forward</span>
+          </a>
+        </div>
+        <div class="relative flex items-center justify-center">
+          <div
+            class="absolute w-[300px] h-[300px] sm:w-[450px] sm:h-[450px] md:w-[500px] md:h-[500px] rounded-full border-2 border-primary/20">
+          </div>
+          <div
+            class="absolute w-[340px] h-[340px] sm:w-[510px] sm:h-[510px] md:w-[570px] md:h-[570px] rounded-full border-2 border-primary/20">
+          </div>
+          <div class="absolute top-[-5%] right-[15%] w-10 h-10 bg-primary rounded-full"></div>
+          <div class="absolute bottom-[-5%] left-[15%] w-10 h-10 bg-primary rounded-full"></div>
+          <div class="relative w-[280px] h-[280px] sm:w-[420px] sm:h-[420px] md:w-[470px] md:h-[470px]">
+            <div class="w-full h-full rounded-full border-2 border-primary overflow-hidden">
+              <img alt="Portrait of Jackson Clark, a web developer" class="w-full h-full object-cover grayscale"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCC_Jfp88_QgzcAHl3yX0Q3z849iGQE3N3FQYuQKnvTAW6kZcPhMmEBBFeSzP0az_unpSqCXPABGMqAJBqQlmscDmxgRoiqgXaJxweIkiE4CGVCL018rYcvBSh7dcIuSfMmfB4rQxxD0nP9-hqCPM3tPMZtn3-9kF0HiAvkC0kBmu9Jyj4E7bHsqBn-9DmjChzPV67qfczCMyKg3j8utKSwzbhUMykJCSNAzpCPfSYBUMCwlolBttttXw27KiaEaN6pezVrODfUOo" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+</section>
+<section class="font-display bg-background-light dark:bg-background-dark">
+  <div class="min-h-screen flex items-center justify-center p-4 sm:p-6 lg:p-8">
+    <div class="max-w-7xl w-full mx-auto">
+      <header class="text-center mb-12 lg:mb-20 relative">
+        <h1 aria-hidden="true"
+          class="text-5xl sm:text-7xl lg:text-9xl font-bold text-slate-200 dark:text-slate-700/80 absolute inset-0 flex items-center justify-center -z-10 select-none">
+          About Us
+        </h1>
+        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-800 dark:text-white relative">
+          About Us
+        </h2>
+        <p class="mt-4 max-w-2xl mx-auto text-slate-600 dark:text-slate-400">
+          Pellentesque tincidunt tristique neque, eget venenatis enim gravida quis. Fusce at egestas libero. Cras
+          convallis egestas ullamcorper suspens.
+        </p>
+      </header>
+      <main class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div class="flex justify-center">
+          <img alt="Portrait of a bearded man with glasses wearing an orange sweater."
+            class="rounded-lg shadow-2xl w-full max-w-md lg:max-w-none object-cover aspect-[4/5]"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuATlX0CrCM7XvhmUHmQAVHilJ7Pb8vXM5lNTtn6DqdHzzqDTgm8_HSZkzqrP_x9M_nLlcz1qo88r578t_ejMIPfCdMAH7vFY7wUpxuOvrrnivvNtHIWmlV7JF03Vagd6JkTsFk87_5E6y-rq5xKgQTfZlabQNCpQM7und01BmRNT08JAGQHoLhpQ788WuNA2IaD2RMXaRQzLnaNqJmRHUlw8nvMLQPZoO2t6RokngCacYCWLS4LeyC9H_EedGcF0WA4vONUCqlKgrI" />
+        </div>
+        <div class="space-y-10">
+          <div>
+            <p class="text-sm font-semibold uppercase tracking-wider text-primary">Our Key Features</p>
+            <h3 class="text-3xl sm:text-4xl font-bold mt-2 text-slate-900 dark:text-white">
+              Phasellus Risus Turpis, Pretium Sit Amet Magna
+            </h3>
+          </div>
+          <div class="space-y-8">
+            <div class="flex items-start gap-4">
+              <span class="text-2xl font-bold text-primary">#1</span>
+              <div>
+                <h4 class="text-lg font-semibold text-slate-800 dark:text-slate-100">Our Mission</h4>
+                <p class="mt-1 text-slate-600 dark:text-slate-400">Lorem ipsum dolor sit amet, consectetur adipiscing
+                  elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <span class="text-2xl font-bold text-primary">#2</span>
+              <div>
+                <h4 class="text-lg font-semibold text-slate-800 dark:text-slate-100">Our Goals</h4>
+                <p class="mt-1 text-slate-600 dark:text-slate-400">Vitae auctor eu augue ut lectus. Malesuada
+                  pellentesque elit eget gravida, sit amet dictum sit amet justo donec enim.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <span class="text-2xl font-bold text-primary">#3</span>
+              <div>
+                <h4 class="text-lg font-semibold text-slate-800 dark:text-slate-100">Why Us?</h4>
+                <p class="mt-1 text-slate-600 dark:text-slate-400">Convallis posuere morbi leo urna molestie at
+                  elementum. Nunc pulvinar sapien et ligula ullamcorper. Lorem donec massa sapien faucibus.</p>
+              </div>
+            </div>
+          </div>
+          <div>
+            <a class="inline-block bg-primary text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:bg-orange-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background-light dark:focus:ring-offset-background-dark"
+              href="#">
+              Learn More
+            </a>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+</section>
+  <section class="font-display bg-background-light dark:bg-background-dark text-gray-300 dark:text-gray-400">
+    <div
+      class="relative bg-background-light/90 dark:bg-background-dark/95 min-h-screen flex flex-col items-center justify-center p-4 sm:p-6 lg:p-8">
+      <section class="w-full max-w-4xl text-center mb-16">
+        <div class="inline-flex items-center justify-center text-primary mb-4">
+          <span class="material-icons-outlined text-4xl">code</span>
+        </div>
+        <h2 class="text-4xl sm:text-5xl font-bold text-primary mb-2">Skills</h2>
+        <p class="text-slate-600 dark:text-slate-400 mb-10">I am striving to never stop learning and improving</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          <div
+            class="bg-slate-200/50 dark:bg-gray-800/50 border border-slate-300 dark:border-gray-700/80 rounded-lg p-6 flex items-start space-x-4 text-left backdrop-blur-sm">
+            <span class="material-icons-outlined text-primary text-3xl mt-1">web</span>
+            <div>
+              <h3 class="font-semibold text-lg text-slate-800 dark:text-slate-200">Frontend Development</h3>
+              <p class="text-sm text-slate-600 dark:text-slate-400">HTML, CSS, JS, REACT JS, NEXT JS</p>
+            </div>
+          </div>
+          <div
+            class="bg-slate-200/50 dark:bg-gray-800/50 border border-slate-300 dark:border-gray-700/80 rounded-lg p-6 flex items-start space-x-4 text-left backdrop-blur-sm">
+            <span class="material-icons-outlined text-primary text-3xl mt-1">storage</span>
+            <div>
+              <h3 class="font-semibold text-lg text-slate-800 dark:text-slate-200">Backend Development</h3>
+              <p class="text-sm text-slate-600 dark:text-slate-400">EXPRESS JS, NODE JS, MONGODB, FIREBASE, REST API, JWT
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-8 gap-6 justify-items-center">
+          <div class="flex flex-col items-center space-y-2">
+            <div
+              class="w-16 h-16 bg-slate-200/50 dark:bg-gray-800/50 border border-slate-300 dark:border-gray-700/80 rounded-full flex items-center justify-center backdrop-blur-sm">
+              <img alt="HTML5 logo" class="w-8 h-8"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUhqvYqZvxp0VA8YgCHpf2llpdZhMZCgaCuvZDOB7LX0jkTvaDejvScZKacwCczyKggtWQlTAgIFopzleVduZmeE_mNxhtQE1X9WhwlSY6fjzSS0subkrSkUztsXkwTaPCnYBDeZ8NBIfIP2i1QQQ1gbbII4k4TjYR2tRtaW3nsNfwFtTpS9TDHeVUGNQwFYFSWKrGa-6PGazsscUhHJHyd1P7g2TLG6EdSBNzY31niwr_3EWO67o59YxdZpOWXWH-a74Jodeg" />
+            </div>
+            <span class="text-sm font-medium text-slate-700 dark:text-slate-300">HTML</span>
+          </div>
+          <div class="flex flex-col items-center space-y-2">
+            <div
+              class="w-16 h-16 bg-slate-200/50 dark:bg-gray-800/50 border border-slate-300 dark:border-gray-700/80 rounded-full flex items-center justify-center backdrop-blur-sm">
+              <img alt="CSS3 logo" class="w-8 h-8"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjhaj9nltKCPShyrJ6GCgd3XmtX_26vNZfPZsyoPWb4iPiOiO4Kh-4kv8DtzKZLQATdDPWDNkIXGTbm4HcYnQrTB1W9DDCatnMGduBHwmNy48NAo8NHVAp8puWpUmdjPzTQtNYAqRMe0rP8NRBwhVe19AdtuPC8Y_0gE_7xR8Z6H3n3VgTp4mx35z8oBnsuhxkw-lNI-VnchMQj4t7KsxM4bNg0aAzFyaSv8YsLoVESmXn3c07gMUpSNotAdHn_XIBE77zjeAJ" />
+            </div>
+            <span class="text-sm font-medium text-slate-700 dark:text-slate-300">CSS</span>
+          </div>
+          <div class="flex flex-col items-center space-y-2">
+            <div
+              class="w-16 h-16 bg-slate-200/50 dark:bg-gray-800/50 border border-slate-300 dark:border-gray-700/80 rounded-full flex items-center justify-center backdrop-blur-sm">
+              <img alt="JavaScript logo" class="w-8 h-8"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHSV_AFXY_5HAN6sfen-GzF39ZzfAuh48UtGyKcp_mWjohSxNgRJCfH_sTwuMqafGrpy9Fe023jkbj_JmPh13VIl7MZq0EDehKK8_b9PVEAZu9gS4DNrm0AF811E7UWGWMbax-5Bu8h7KSHCKGn_4O9kpHzAINxmndTKU5_BirVMkRH7frpkhUevBGUGwKFmm4GFLVHkv71xR7p2U1yZcSqaExa8NDMcpsCER0wx5BJpd2UUPRe99ICzZlJ6aprXm_jvyz41tc" />
+            </div>
+            <span class="text-sm font-medium text-slate-700 dark:text-slate-300">JS</span>
+          </div>
+          <div class="flex flex-col items-center space-y-2">
+            <div
+              class="w-16 h-16 bg-slate-200/50 dark:bg-gray-800/50 border border-slate-300 dark:border-gray-700/80 rounded-full flex items-center justify-center backdrop-blur-sm">
+              <img alt="React JS logo" class="w-8 h-8"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBP6yi46xZlIY7rpEYp20PEUYnoOUE6wsj3LRVArQC3XA2LRujpOljs8-4-gCVLkYNk-SEV_8qQ5vpDE6QqI4LJBrHc2Qx7i8KEAB_PVs0bjaGF7GCyAv1S0cAAIKB-YXICEZJZI_q0doF6G6pH8boASpwbdNIS9cx2OhOLcynblqxCdbr0P3ygKWF5_BMzaGh0zJWs_fDf8jFisULCatO8NOiiGll0owyYpGT4Wjk76A6AEWBQ6DA5FSjj7p2quYzDkqsf_WB9" />
+            </div>
+            <span class="text-sm font-medium text-slate-700 dark:text-slate-300">REACT JS</span>
+          </div>
+          <div class="flex flex-col items-center space-y-2">
+            <div
+              class="w-16 h-16 bg-slate-200/50 dark:bg-gray-800/50 border border-slate-300 dark:border-gray-700/80 rounded-full flex items-center justify-center backdrop-blur-sm">
+              <img alt="Node JS logo" class="w-8 h-8"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwKuF9GMibopy8cbiXQBcd8_ZFOIAk-aGm3oWr6H9aRoicd9Bs9ZO4JF1CeYQpf1WmI6WDysGOTiQfkAxeEKJkGboLb8IbtYEnfEgdIoZTouzokUHlqH4nEgRqg-o8maytIai3Oy3WWUBkU-RPdkyNorxbl5_RsfGlkioGEHXjRduUAtELdqZuB1NQBU68XFj_VANxcSC04eJY764AajTEhsFJWD52u5ye-DUxsenA0oRnTTR0UMHTXnItutM8HpjC9im3qe9Z" />
+            </div>
+            <span class="text-sm font-medium text-slate-700 dark:text-slate-300">NODE JS</span>
+          </div>
+          <div class="flex flex-col items-center space-y-2">
+            <div
+              class="w-16 h-16 bg-slate-200/50 dark:bg-gray-800/50 border border-slate-300 dark:border-gray-700/80 rounded-full flex items-center justify-center backdrop-blur-sm">
+              <img alt="Express JS logo" class="w-8 h-8"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoKwMnbAdRiiM5FGEa1Np2Fhtg8gd6ma-J32w2pKL7D29OXcHyfvKqLKyly3YsapawliSsBVtQp1Ndb3TrGVH9mnU1nCqjS_6iqceJ4Q3z-jRZOnmB2_6TLaMhwkeIdDGD5gue4gEQ-mlHYGsDUhUGbX2l41LwowSCZewpE5UdgGNCwdnJtvQnXJ5u_dWEFAYhhtVmJogjwMiOn1bd6FT_Q4mc0xj18bo08801zN0TOKSLlFG8x6zKE_X_7FyUFUkDBr9HMWUZ" />
+            </div>
+            <span class="text-sm font-medium text-slate-700 dark:text-slate-300">EXPRESS JS</span>
+          </div>
+          <div class="flex flex-col items-center space-y-2">
+            <div
+              class="w-16 h-16 bg-slate-200/50 dark:bg-gray-800/50 border border-slate-300 dark:border-gray-700/80 rounded-full flex items-center justify-center backdrop-blur-sm">
+              <img alt="Next JS logo" class="w-8 h-8"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCe5oFS2TjVaY4EhSW7KEHu7hJ-eVcexFJwVwHVLdVraoAQEY0qY8fckj13ncbo8pQXtGQWiroHpJ3BW_c3SUob5hWc_V4mr0dAWNeKt62fikcJy6qcOmsTIhwnBcRMzrj2vEbry43553tQ3wA1zfEDtgFbYasYnvXJUxDIwWf7MmN-3_JpZh85by4p2fACz1rlYHcPL28PGZRd4nd2P6q-16fCEJcT77ry-mHpfUwcgQym2caUz5ox9Sz9djhvJIjLtFoaXyA" />
+            </div>
+            <span class="text-sm font-medium text-slate-700 dark:text-slate-300">NEXT JS</span>
+          </div>
+          <div class="flex flex-col items-center space-y-2">
+            <div
+              class="w-16 h-16 bg-slate-200/50 dark:bg-gray-800/50 border border-slate-300 dark:border-gray-700/80 rounded-full flex items-center justify-center backdrop-blur-sm">
+              <img alt="MongoDB logo" class="w-8 h-8"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzuYAgjE9-cwE_0EDcNcD-XqeLc8rXGQozv4CpW-IlMtbmjnNKQ--ISFgkMom1a2JV77i9RM7ZW4r6FJnyn3pop0Y5yFxmMzWhYseTwB6MyBqHBRGw0uyl3j2BbdSAgV3s7RHlreodykPiVPneppmYV0FMu141e3KQUfIWPnuEDriuFI1Is3KX3Ai7vsmGnP6knRRhTSl_GHZa8G6JrfF0lNlzlqueZDbUUaumJsBSDSkXdNiSvJqHV_nB2JSGFPyKvoHBaefr" />
+            </div>
+            <span class="text-sm font-medium text-slate-700 dark:text-slate-300">MONGODB</span>
+          </div>
+        </div>
+      </section>
+      <section class="w-full max-w-4xl text-center pb-8">
+        <div class="inline-flex items-center justify-center text-primary mb-4">
+          <span class="material-icons-outlined text-4xl">build</span>
+        </div>
+        <h2 class="text-4xl sm:text-5xl font-bold text-primary mb-2">Tools &amp; Technologies</h2>
+        <p class="text-slate-600 dark:text-slate-400 mb-10">Tools I use to bring ideas to life</p>
+        <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-7 gap-6 justify-items-center">
+          <div class="flex flex-col items-center space-y-2">
+            <div
+              class="w-20 h-20 bg-slate-200/50 dark:bg-gray-800/50 border border-slate-300 dark:border-gray-700/80 rounded-lg flex items-center justify-center backdrop-blur-sm p-2">
+              <img alt="Git logo" class="w-12 h-12"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtRMqlqpVzjoKqul6diQ5rGrYddvXaz4Gzu9Syw_TRqQDnBS6TOaOvrEwM7J4x2Hm7xtso6zcrsbr1LNpqoUXDJ942Mg66i-VlVkzNkKTxAiy8LRTF_fLFaaoziVIbQ-yVeSi2y-kfTy7VWVZLracdsEcFQQCOeWAe-3E7gQlLiLrRKCVQWxMqZD82Xydo_AWXR6F8hGHPa1STtrhp_Bmc9rjmw_jQXS9p_2AetE-BvjewIYSzxN3YgCkUIbfVq0C8e2kTdTL2" />
+            </div>
+            <span class="text-sm font-medium text-slate-700 dark:text-slate-300">Git</span>
+          </div>
+          <div class="flex flex-col items-center space-y-2">
+            <div
+              class="w-20 h-20 bg-slate-200/50 dark:bg-gray-800/50 border border-slate-300 dark:border-gray-700/80 rounded-lg flex items-center justify-center backdrop-blur-sm p-2">
+              <img alt="GitHub logo" class="w-12 h-12"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6mS6D7X1TETTsW8kLyiz8VNzcojFHZVtinyPtlvkoD2o4Yrd4j2OEgA1ZCL5cnrOZ_634NPXAa8MJWtxAYXupNrjpwpSFYS9Os_P3Efevf_ms1ZdbKDZa3VxfsC2rvvZu-gCOOzI-cod1xscmg9pZduPi4uDMkPBErYxgx0nxcgA6Pcd_ZFeYTLSWNn-wQgMHky8V0F8LoW1qbQk_Tlw7_Knc7v8OjRPs5QolU6_n2LB1-TtKl_zNTkZ5arxQJNifSVtl82sA" />
+            </div>
+            <span class="text-sm font-medium text-slate-700 dark:text-slate-300">GitHub</span>
+          </div>
+          <div class="flex flex-col items-center space-y-2">
+            <div
+              class="w-20 h-20 bg-slate-200/50 dark:bg-gray-800/50 border border-slate-300 dark:border-gray-700/80 rounded-lg flex items-center justify-center backdrop-blur-sm p-2">
+              <img alt="Visual Studio Code logo" class="w-12 h-12"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLTEoJAb3HsZJLxKvpaTLtaFMVxKbHPw9epjrdMZTNTmBiLjkx37yHZjEZAxhhgW4crnMYUqcH929WzHPT_M6BZNW-yA1932-37yBeHXTNLK8qkk-LoP6Bt81nLiGO_jUURBE_mVEYSBP9gZm6t0Ewf-ZoVFQYC7Aj_iSLmMOqLH0J301ut1OZUmNHn1FdTih1HZprNRzeIySooPM6p5nlcN5UA8Va5E5349fmCbTlx9s1YI5d0n499OMI2zJrDnfpMfjq_GAU" />
+            </div>
+            <span class="text-sm font-medium text-slate-700 dark:text-slate-300">VS Code</span>
+          </div>
+          <div class="flex flex-col items-center space-y-2">
+            <div
+              class="w-20 h-20 bg-slate-200/50 dark:bg-gray-800/50 border border-slate-300 dark:border-gray-700/80 rounded-lg flex items-center justify-center backdrop-blur-sm p-2">
+              <img alt="Figma logo" class="w-12 h-12"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAK8PXkzIud411PqrnMFRPb8l48sX1ieGkQRosKI1Y7eqf5sdwnUditrN52nbneqUOwWUrobQUKghxRYRZy0oBZH4XPaddzjG1dUdJFZQTI63LDDIWSHM5F01L43Ue1x0HBwQ8ohMtbUcsQ3vDfJjHz-efIjv2dyFzQ3MdzTj04cDvxxhrbA0oLtsQY0EfQ7a6YddnOEG65JprB_LCVFy0DnOWwDl42PdlzAynau1R5PxlTDVztmeFiy9X-eCv1o_GurF9y058B" />
+            </div>
+            <span class="text-sm font-medium text-slate-700 dark:text-slate-300">Figma</span>
+          </div>
+          <div class="flex flex-col items-center space-y-2">
+            <div
+              class="w-20 h-20 bg-slate-200/50 dark:bg-gray-800/50 border border-slate-300 dark:border-gray-700/80 rounded-lg flex items-center justify-center backdrop-blur-sm p-2">
+              <img alt="Tailwind CSS logo" class="w-12 h-12"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBn7GnbnMZQYVtn2UUzk1E5e18hl49bTLLJY_QKlE_cZNJ7QcaveBkbvDeEkRW_SNs-4dfUXFgGZYhxo910kP9xl5DU_GpBHnRmPAl4wwH3kNqUlUvWp5T5Kof0XR0w8p4UEPnJop4YIMZZh0mkD1Anp0uKmyK6UrzCWd57gG7wV1s4tUp1VKkwpviFD60Ir3v3wmbpKATFUFoiRDhjGDqW8HoCVHtIQQur3y-Vq5lw0zVV-W9dPOKEnDZe94In9siwkGYgUTLN" />
+            </div>
+            <span class="text-sm font-medium text-slate-700 dark:text-slate-300">Tailwind</span>
+          </div>
+          <div class="flex flex-col items-center space-y-2">
+            <div
+              class="w-20 h-20 bg-slate-200/50 dark:bg-gray-800/50 border border-slate-300 dark:border-gray-700/80 rounded-lg flex items-center justify-center backdrop-blur-sm p-2">
+              <img alt="Firebase logo" class="w-12 h-12"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAPn3I2EaY6ynumxKdJlhLmhmXQ5yOoc4NW3GaGq_cw9OObls5iAIu9w4E6FCd7G-EEkaNY2fLeRa-gD_Z4fCUAuWWyVtohxJ2F9wN_Mlmx8Vhd6D0LHFyvardEX6GxBtso5Tj9Dclt5htw_iqojPIH9YOnCcA54KhqZf4AQogXzNtKDaibJP-kl660VZXQTJXNcaY-_A_dPnsjsRe5mveP619gA1pYg4w46asqlGYmy_-3ON0Uoerg9Z6MeIW86ghrnIKEPZr" />
+            </div>
+            <span class="text-sm font-medium text-slate-700 dark:text-slate-300">Firebase</span>
+          </div>
+          <div class="flex flex-col items-center space-y-2">
+            <div
+              class="w-20 h-20 bg-slate-200/50 dark:bg-gray-800/50 border border-slate-300 dark:border-gray-700/80 rounded-lg flex items-center justify-center backdrop-blur-sm p-2">
+              <img alt="Vercel logo" class="w-12 h-12"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvT5LO7OFfI6GCkmMwXagHWbgxo-0xfx58MbYzWqE5BxVwSutdycgZY-ljm5vRiGjtfziqXkDLO8Ef--v_8n-gaqbJRpyavAwc8GPwUweYOGV1Sw6uvEo-THRYXl2yiCkTxDvOL9y8dXduTUyh5dACgadpNSWfwx_PKa1NmOig10jhxKYonTuBg2Bksyb7rQA69D5bhk1fWGs4bZm56hGNjC6rdLBFMx6Wo2R-o4fYSgpHQp1IXfafBwooKUZXGuxsMc2RymkO" />
+            </div>
+            <span class="text-sm font-medium text-slate-700 dark:text-slate-300">Vercel</span>
+          </div>
+        </div>
+      </section>
+      <div class="absolute bottom-0 left-0 right-0 h-12 bg-repeat-x"
+        style="background-image: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px); background-size: 1rem 1rem;">
+      </div>
+    </div>
+  
+  </section>
+  <section class="bg-background-light dark:bg-background-dark font-display antialiased">
+    <div class="flex flex-col items-center justify-center min-h-screen p-4 sm:p-6 lg:p-8">
+      <div class="w-full max-w-4xl mx-auto">
+        <div class="flex flex-col items-center mb-12">
+          <div class="flex flex-col items-center">
+            <span class="material-symbols-outlined text-primary text-4xl">arrow_upward</span>
+            <div class="h-10 w-px border-l border-dashed border-gray-400 dark:border-gray-600"></div>
+          </div>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-800 dark:text-white mt-4">Contact</h1>
+          <div class="mt-4 text-center">
+            <p class="text-lg text-gray-600 dark:text-gray-300">Feel Free To Contact Me</p>
+            <div class="w-20 h-1 bg-primary mx-auto mt-2 rounded-full"></div>
+          </div>
+          <p class="mt-6 max-w-xl text-center text-gray-500 dark:text-gray-400">
+            I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          <a class="group bg-white/50 dark:bg-gray-800 p-6 rounded-lg shadow-sm hover:shadow-lg dark:hover:bg-gray-700 transition-all duration-300 ease-in-out transform hover:-translate-y-1"
+            href="mailto:armanislam988@gmail.com">
+            <div class="flex items-center space-x-4">
+              <div class="flex-shrink-0">
+                <img alt="Email icon"
+                  class="w-16 h-16 rounded-full p-4 bg-red-500/10 dark:bg-red-500/20 flex items-center justify-center"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuADqDhAAN9ww2y97-nxcxBEtH09QLBAVVmnTbaTHNiNUv8Gd3QXB7WcwznYsEokB1veF3BFmh1363Sr9kO13iTLQuvwCU56nWARnm0yG0zbRmpLDpKnte1FtqiI9WJl4A5yCaSSwAKSgN8p9RCeoIZnBPo-T5hiOGcMVaOaFQuXnw_O0_iNzETqTURISiIl2Ix3N1ZeIMTUa9wtac-d9KFJrSkQk8HDd6ULLdVfwuQEHH2wp7ffWrFVhaIDsQCsvQoIX2PsEkyDuGw" />
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Email</h3>
+                <p class="text-gray-600 dark:text-gray-400">armanislam988@gmail.com</p>
+              </div>
+            </div>
+          </a>
+          <a class="group bg-white/50 dark:bg-gray-800 p-6 rounded-lg shadow-sm hover:shadow-lg dark:hover:bg-gray-700 transition-all duration-300 ease-in-out transform hover:-translate-y-1"
+            href="#">
+            <div class="flex items-center space-x-4">
+              <div class="flex-shrink-0">
+                <img alt="GitHub icon" class="w-16 h-16 rounded-full p-4 bg-gray-500/10 dark:bg-gray-200/20"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpyKYURiWed0Ljy7gwR0XzcTW8ha7Q4D72kRZBMrau2kRMAUl14nAXvOLpBak2vN5TxqY9-F4giYpg-mxm_-kj5wOXMGqohUUtarKTYxXY9lFf-XiZrg1HHQeyZZ0bl_J3MuNSKDNYXgLrqinzFZ5L5i3IBx79Yvm0GEzeFztTD-FEBza2opPh6AIfZaAMk991NXXQJ7Wd3jRfjkgtUHPQsbmRezA4UDRbsMiH0sccFUOfSyjaXeJkfjSU0iwH4sIewlzOxlT5Apk" />
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">GitHub</h3>
+                <p class="text-gray-600 dark:text-gray-400">@armanislams</p>
+              </div>
+            </div>
+          </a>
+          <a class="group bg-white/50 dark:bg-gray-800 p-6 rounded-lg shadow-sm hover:shadow-lg dark:hover:bg-gray-700 transition-all duration-300 ease-in-out transform hover:-translate-y-1"
+            href="#">
+            <div class="flex items-center space-x-4">
+              <div class="flex-shrink-0">
+                <img alt="LinkedIn icon" class="w-16 h-16 rounded-full p-4 bg-blue-500/10 dark:bg-blue-500/20"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1o2Di8lhsp3ulXTMp2Kb6q4dWdp3fpc3p10vZsJFk3JkxXzS1GWr5pCN4zldAYTFaAXmuX8twlUtO0owDfn75i9q2s9q994H6vA2dIgcsM-xUTM5FHgcgFffSpqOMnB7UWMPQJuP2P-PHBRQF494Pv0yVqXw17erYPm8Eu13p5iZEEkyJcFcBmJisKu0W2XLFFQ0vyMhoMeSIZGJauuwHt5cY50VU9hf7LGck3SkqaFiHh9Z3iYJOsWFyJeCVRquoHmWYbDER-Iw" />
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">LinkedIn</h3>
+                <p class="text-gray-600 dark:text-gray-400">Md Arman Islam</p>
+              </div>
+            </div>
+          </a>
+          <a class="group bg-white/50 dark:bg-gray-800 p-6 rounded-lg shadow-sm hover:shadow-lg dark:hover:bg-gray-700 transition-all duration-300 ease-in-out transform hover:-translate-y-1"
+            href="#">
+            <div class="flex items-center space-x-4">
+              <div class="flex-shrink-0">
+                <img alt="Discord icon" class="w-16 h-16 rounded-full p-4 bg-indigo-500/10 dark:bg-indigo-500/20"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlcL0R6TIk8GpSkoPIj3-bOxhznb98DhkJyrwCfvmDau13Ionf4kHmsx9VaSH6F76bYIC-40tkJ-tf0fNcBN4msBg-fHmLKbvzSfWU-Lo-eaHWfaytgNTjBaeMa_KINka6XNOrcKsnmqPOXRA2rPn-0xXwGDKzxQBToJLIVqW01oggbCkN3FA1mk60bRwKBAPq1w4vG0aFkMlWk-yNDjGP_LNvq5_vkE64BFWzBNbTDvJ236bHhiWxVBU9K7noQ5fSb3ezF8PvO2M" />
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Discord</h3>
+                <p class="text-gray-600 dark:text-gray-400">Join Server</p>
+              </div>
+            </div>
+          </a>
+          <a class="group bg-white/50 dark:bg-gray-800 p-6 rounded-lg shadow-sm hover:shadow-lg dark:hover:bg-gray-700 transition-all duration-300 ease-in-out transform hover:-translate-y-1"
+            href="#">
+            <div class="flex items-center space-x-4">
+              <div class="flex-shrink-0">
+                <img alt="WhatsApp icon" class="w-16 h-16 rounded-full p-4 bg-green-500/10 dark:bg-green-500/20"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPN-NvqOBNYwScZ5MQ-xz_Vg0ezKLclB4sIVfcdHjhDso_XmXhKfr9c-zbAlHduQu09p3lWvPn8HVwnaKmY3kgsKnVnCso4vY_BKGPenWn2MiVM-1oARKklbT3Kac7HknKv3p7cgYHQCgzSSySKSuMMUnDHT_4jJQVUnyOV1UL_tunMBaHDoHSoYxpctI_MtGMK-KhGSCkSdlPOhVJMNXaoO6X7Ik_qlV3cqTN4np5wEfF0n4DzQjFjfmCILwLDzObE1R4oMC3R7A" />
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">WhatsApp</h3>
+                <p class="text-gray-600 dark:text-gray-400">Chat on WhatsApp</p>
+              </div>
+            </div>
+          </a>
+          <a class="group bg-white/50 dark:bg-gray-800 p-6 rounded-lg shadow-sm hover:shadow-lg dark:hover:bg-gray-700 transition-all duration-300 ease-in-out transform hover:-translate-y-1"
+            href="#">
+            <div class="flex items-center space-x-4">
+              <div class="flex-shrink-0">
+                <img alt="WeChat icon" class="w-16 h-16 rounded-full p-4 bg-green-400/10 dark:bg-green-400/20"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCB29QEUnado9u2TnXdWsl8J03fi66iZORfefXY0Khd7fbNS6imwq9VAugGpbzPIH9jvdILAbzy6NFd95Xmvur9bHPb88y_waUIum9nl7-fLvhUkOucgjX7gqvTdHWCaEI-EdXBt7wN4YExyVXdbcVA-9PgGZ-LiEa_YN3tNF7t0sYh2EwU0H8hZ9TNmubUtUiQk9jUuS9omPV3GdnJgS6zyB9GJp_BBowwfTZ5t8J__bTCLLq9OGztfdwBmNCjrwLLy2jfvx8fB5o" />
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">WeChat</h3>
+                <p class="text-gray-600 dark:text-gray-400">Add on WeChat</p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="mt-12 text-center">
+          <a class="inline-block bg-primary text-gray-900 font-bold py-4 px-10 rounded-lg shadow-lg hover:shadow-primary/50 transition duration-300 ease-in-out transform hover:scale-105"
+            href="#">
+            Let's work together
+          </a>
+        </div>
+      </div>
+    </div>
+  
+  </section>
+</body>
+</html>

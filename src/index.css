@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons+Outlined');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .neon-glow {
+    animation: neon-pulse 3s infinite alternate;
+  }
+
+  /* Light Mode Glow (Dark/Subtle) */
+  @keyframes neon-pulse {
+    0% {
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1), 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    100% {
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 0, 0, 0.15), 0 0 30px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  /* Dark Mode Glow (Bright White Neon) */
+  .dark .neon-glow {
+    animation: neon-pulse-dark 3s infinite alternate;
+  }
+
+  @keyframes neon-pulse-dark {
+    0% {
+      box-shadow: 0 0 5px rgba(255, 255, 255, 0.2), 0 0 10px rgba(255, 255, 255, 0.1);
+    }
+
+    100% {
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.3), 0 0 30px rgba(255, 255, 255, 0.1);
+    }
+  }
+}
+
+/* 🔥 Animated Neon Border Running Around Navbar */
+.neon-border {
+  position: relative;
+  overflow: hidden;
+}
+
+.neon-border::before,
+.neon-border::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(120deg,
+      #ffffff,
+      #00eaff,
+      #00ff88,
+      #ffffff);
+  background-size: 300% 300%;
+  animation: neonRun 4s linear infinite;
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+@keyframes neonRun {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.glow-ball {
+  @apply rounded-full bg-white dark:bg-white;
+
+  /* Softer Glow */
+  box-shadow:
+    0 0 6px #ffffff,
+    0 0 12px #ffffff,
+    0 0 20px #b8b8b8;
+
+  animation: pulseGlow 2.2s infinite ease-in-out;
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow:
+      0 0 6px #ffffff,
+        0 0 12px #c6c6c6,
+        0 0 20px #a8a8a8;
+    transform: scale(1);
+  }
+  50% {
+    box-shadow:
+      0 0 6px #ffffff,
+        0 0 12px #c6c6c6,
+        0 0 20px #a8a8a8;
+    transform: scale(1.15);
+  }
+  100% {
+    box-shadow:
+      0 0 6px #ffffff,
+      0 0 12px #c6c6c6, 
+      0 0 20px #a8a8a8;
+    transform: scale(1);
+  }
+}
