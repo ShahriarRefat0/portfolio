@@ -67,7 +67,7 @@ const Navbar = () => {
           onClick={() => scrollToSection("home")}
         >
           <p className="text-xl font-bold font-display text-black dark:text-white">
-            WEB Dev/
+            WEB De\/
           </p>
         </div>
 

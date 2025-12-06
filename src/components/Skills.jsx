@@ -68,7 +68,7 @@ const Skills = () => {
   return (
     <section
       ref={containerRef}
-      className="relative font-display bg-background-light dark:bg-background-dark text-gray-800 dark:text-gray-200 overflow-hidden"
+      className="relative pt-36 font-display bg-background-light dark:bg-background-dark text-gray-800 dark:text-gray-200 overflow-hidden"
     >
   {/* Background Particles */}
       <div className="absolute inset-0 z-10 pointer-events-none">

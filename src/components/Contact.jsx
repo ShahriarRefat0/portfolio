@@ -61,7 +61,7 @@ const Contact = () => {
     <section
       ref={containerRef}
       id="contact"
-      className="relative overflow-hidden font-display bg-background-light dark:bg-background-dark text-gray-800 dark:text-gray-200"
+      className="relative pt-36 min-h-screen my-auto overflow-hidden font-display bg-background-light dark:bg-background-dark text-gray-800 dark:text-gray-200"
     >
       {/* BACKGROUND PARTICLES */}
       <div className="absolute inset-0 z-0 pointer-events-none">

@@ -24,7 +24,7 @@ const About = () => {
     <section
       ref={containerRef}
       id="about"
-      className="relative container mx-auto px-6 pt-40 pb-16 lg:pt-32 overflow-hidden"
+      className="relative container pt-36 mx-auto px-6 pt-40 pb-16 lg:pt-32 overflow-hidden"
     >
       {/* Background Particles */}
       <div className="absolute inset-0 z-0 pointer-events-none">
