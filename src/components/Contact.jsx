@@ -5,11 +5,15 @@ import { useGSAP } from "@gsap/react";
 import { FaInstagram, FaLinkedinIn, FaPaperPlane } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { motion } from "framer-motion";
+import emailjs from '@emailjs/browser';
+import Swal from "sweetalert2";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Contact = () => {
   const containerRef = useRef(null);
+const form = useRef()
 
   useGSAP(
     () => {
@@ -56,6 +60,53 @@ const Contact = () => {
     },
     { scope: containerRef }
   );
+
+
+  const handelSendMessage =(e) => {
+    e.preventDefault()
+    
+    emailjs
+      .sendForm('service_fubhfii', 'template_8i8cc5k', form.current, {
+        publicKey: 'BAjUAHcmhnHBcE9lS',
+      })
+      .then(
+        (res) => {
+          if (res.status) { 
+            Swal.fire({
+              title: "Message Sent!",
+              text: "Thank you for contacting me. I will reply soon.",
+              icon: "success",
+              background: "#1e1e1e",
+              color: "#ffffff",
+              iconColor: "#22c55e",
+              confirmButtonColor: "#3b82f6",
+              confirmButtonText: "Okay",
+              customClass: {
+                popup: "rounded-xl shadow-lg",
+              },
+            });
+          }
+          form.current.reset();
+         // console.log('SUCCESS!', res.status);
+        },
+        (error) => {
+          // console.log('FAILED...', error.text);
+          Swal.fire({
+            title: "Failed!",
+            text: "Message could not be sent.",
+            icon: "error",
+            background: "#1e1e1e",
+            color: "#ffffff",
+            iconColor: "#ef4444",
+            confirmButtonColor: "#ef4444",
+            customClass: {
+              popup: "rounded-xl shadow-lg",
+            },
+          });
+        },
+      );
+
+  }
 
   return (
     <section
@@ -267,7 +318,7 @@ const Contact = () => {
                 transition-all duration-700 ease-out pointer-events-none
               "></span>
 
-              <form className="space-y-6">
+              <form ref={form} onSubmit={handelSendMessage} className="space-y-6">
 
                 {/* NAME */}
                 <div>
@@ -275,6 +326,7 @@ const Contact = () => {
                     Name
                   </label>
                   <input
+                    name="name"
                     type="text"
                     placeholder="John Doe"
                     className="w-full px-4 py-3 rounded-lg
@@ -292,6 +344,7 @@ const Contact = () => {
                     Email
                   </label>
                   <input
+                    name="email"
                     type="email"
                     placeholder="john@example.com"
                     className="w-full px-4 py-3 rounded-lg
@@ -309,6 +362,7 @@ const Contact = () => {
                     Message
                   </label>
                   <textarea
+                    name="message"
                     placeholder="Your message…"
                     className="w-full px-4 py-3 rounded-lg
                       bg-white dark:bg-black border border-gray-300 dark:border-gray-700
