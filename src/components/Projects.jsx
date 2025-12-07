@@ -126,7 +126,7 @@ const Projects = () => {
         <div className="project-card">
           <ProjectCard
             title="Plate Share"
-            description="PlateShare is a full-stack MERN application that connects communities through food sharing..."
+            description="PlateShare is a full-stack MERN application that connects communities through food sharing. It allows users to donate surplus food and helps others find and request meals, reducing food waste while supporting those in need."
             image={plateShare}
             github="https://github.com/ShahriarRefat0/Plate-Share-client.git"
             demo="https://plate-share-b21c8.web.app/"
@@ -146,17 +146,17 @@ const Projects = () => {
         <div className="project-card">
           <ProjectCard
             title="Bepaw Pet Care"
-            description="A modern winter pet care platform for users to discover services, winter care products, and grooming solutions..."
+            description="A modern winter pet care platform for pet owners to discover services, winter products, grooming options, and expert tips all in one place.Users can manage, update and delete their donated food items from privet route."
             image={bepaw}
             github="https://github.com/ShahriarRefat0/Bepaw-pet-care.git"
             demo="https://bepaw-pet-care.vercel.app/"
             stack={[
               "Tailwind",
-              "MongoDB",
               "React.js",
               "Firebase",
               "Node.js",
               "Express.js",
+              'DaisyUI'
             ]}
           />
         </div>
@@ -166,7 +166,7 @@ const Projects = () => {
           <div className="w-full max-w-[580px]">
             <ProjectCard
               title="Blood Bank"
-              description="BloodBank is a modern platform for blood donation and requests..."
+              description="BloodBank is a modern platform for blood donation.Users can create, view, and manage their blood requests. Donors can view requests and accept or decline them using dynamic data fetching."
               image={bloodBank}
               github="https://github.com/ShahriarRefat0/blood-bank-v1.git"
               demo="https://blood-bank-v1.vercel.app/"

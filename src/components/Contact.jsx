@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -13,6 +13,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Contact = () => {
   const containerRef = useRef(null);
+  const [error, setError] = useState("");
+
 const form = useRef()
 
   useGSAP(
@@ -61,52 +63,63 @@ const form = useRef()
     { scope: containerRef }
   );
 
+  const validateEmail = (email) => {
+    const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return pattern.test(email);
+  };
 
-  const handelSendMessage =(e) => {
-    e.preventDefault()
-    
+  const handelSendMessage = (e) => {
+    e.preventDefault();
+
+    const name = form.current.name.value.trim();
+    const email = form.current.email.value.trim();
+    const message = form.current.message.value.trim();
+
+    // required check
+    if (!name || !email || !message) {
+      setError("All fields are required!");
+      return;
+    }
+
+    // email validation
+    if (!validateEmail(email)) {
+      setError("Please enter a valid email address!");
+      return;
+    }
+
+    setError(""); // Clear error before sending
+
     emailjs
-      .sendForm('service_fubhfii', 'template_8i8cc5k', form.current, {
-        publicKey: 'BAjUAHcmhnHBcE9lS',
-      })
-      .then(
-        (res) => {
-          if (res.status) { 
-            Swal.fire({
-              title: "Message Sent!",
-              text: "Thank you for contacting me. I will reply soon.",
-              icon: "success",
-              background: "#1e1e1e",
-              color: "#ffffff",
-              iconColor: "#22c55e",
-              confirmButtonColor: "#3b82f6",
-              confirmButtonText: "Okay",
-              customClass: {
-                popup: "rounded-xl shadow-lg",
-              },
-            });
-          }
-          form.current.reset();
-         // console.log('SUCCESS!', res.status);
-        },
-        (error) => {
-          // console.log('FAILED...', error.text);
+      .sendForm(
+        "service_fubhfii",
+        "template_8i8cc5k",
+        form.current,
+        { publicKey: "BAjUAHcmhnHBcE9lS" }
+      )
+      .then((res) => {
+        if (res.status) {
           Swal.fire({
-            title: "Failed!",
-            text: "Message could not be sent.",
-            icon: "error",
+            title: "Message Sent!",
+            text: "Thank you for contacting me. I will reply soon.",
+            icon: "success",
             background: "#1e1e1e",
             color: "#ffffff",
-            iconColor: "#ef4444",
-            confirmButtonColor: "#ef4444",
-            customClass: {
-              popup: "rounded-xl shadow-lg",
-            },
+            iconColor: "#22c55e",
+            confirmButtonColor: "#3b82f6",
           });
-        },
-      );
-
-  }
+        }
+        form.current.reset();
+      })
+      .catch(() => {
+        Swal.fire({
+          title: "Failed!",
+          text: "Message could not be sent.",
+          icon: "error",
+          background: "#1e1e1e",
+          color: "#ffffff",
+        });
+      });
+  };
 
   return (
     <section
@@ -327,6 +340,7 @@ const form = useRef()
                   </label>
                   <input
                     name="name"
+                    required
                     type="text"
                     placeholder="John Doe"
                     className="w-full px-4 py-3 rounded-lg
@@ -345,6 +359,7 @@ const form = useRef()
                   </label>
                   <input
                     name="email"
+                    required
                     type="email"
                     placeholder="john@example.com"
                     className="w-full px-4 py-3 rounded-lg
@@ -354,7 +369,9 @@ const form = useRef()
                       transition-shadow
                     "
                   />
+                  
                 </div>
+                
 
                 {/* MESSAGE */}
                 <div>
@@ -363,6 +380,7 @@ const form = useRef()
                   </label>
                   <textarea
                     name="message"
+                    required
                     placeholder="Your message…"
                     className="w-full px-4 py-3 rounded-lg
                       bg-white dark:bg-black border border-gray-300 dark:border-gray-700
@@ -372,6 +390,11 @@ const form = useRef()
                     "
                   ></textarea>
                 </div>
+                {error && (
+                  <p className="text-red-500 font-semibold bg-red-500/10 p-2 rounded-lg">
+                    {error}
+                  </p>
+                )}
 
                 {/* SUBMIT BUTTON */}
                 <motion.div
