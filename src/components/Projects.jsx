@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import ProjectCard from "./ProjectCard";
 import bepaw from "../assets/bepaw.png";
+import book2door from "../assets/book2door.png";
 import plateShare from "../assets/plateshare.png";
 import bloodBank from "../assets/bloodbank.png";
 import gsap from "gsap";
@@ -125,6 +126,28 @@ const Projects = () => {
         {/* Card 1 */}
         <div className="project-card">
           <ProjectCard
+            title="Book2Door"
+            description="Book2Door is a modern, full-featured and multiple Role-Base online bookstore application.
+             Built with cutting-edge
+              web technologies, it offers a seamless shopping experience with an intuitive interface,
+               robust search capabilities, and secure payment processing."
+            image={book2door}
+            github="https://github.com/ShahriarRefat0/Book2Door-client.git"
+            demo="https://book2-door-client.vercel.app/"
+            stack={[
+              "React",
+              "Tailwind CSS",
+              "DaisyUI",
+              "Firebase",
+              "Node.js",
+              "Express.js",
+              "MongoDB",
+            ]}
+          />
+        </div>
+        {/* Card 2 */}
+        <div className="project-card">
+          <ProjectCard
             title="Plate Share"
             description="PlateShare is a full-stack MERN application that connects communities through food sharing. It allows users to donate surplus food and helps others find and request meals, reducing food waste while supporting those in need."
             image={plateShare}
@@ -142,27 +165,8 @@ const Projects = () => {
           />
         </div>
 
-        {/* Card 2 */}
+        {/* Card 3 */}
         <div className="project-card">
-          <ProjectCard
-            title="Bepaw Pet Care"
-            description="A modern winter pet care platform for pet owners to discover services, winter products, grooming options, and expert tips all in one place.Users can manage, update and delete their donated food items from privet route."
-            image={bepaw}
-            github="https://github.com/ShahriarRefat0/Bepaw-pet-care.git"
-            demo="https://bepaw-pet-care.vercel.app/"
-            stack={[
-              "Tailwind",
-              "React.js",
-              "Firebase",
-              "Node.js",
-              "Express.js",
-              'DaisyUI'
-            ]}
-          />
-        </div>
-
-        {/* Card 3 — ALWAYS CENTERED */}
-        <div className="sm:col-span-2 flex justify-center project-card">
           <div className="w-full max-w-[580px]">
             <ProjectCard
               title="Blood Bank"
@@ -181,6 +185,28 @@ const Projects = () => {
             />
           </div>
         </div>
+
+        {/* Card - 4  */}
+        <div className="project-card">
+          <ProjectCard
+            title="Bepaw Pet Care"
+            description="A modern winter pet care platform for pet owners to discover services, winter products, grooming options, and expert tips all in one place.Users can manage, update and delete their donated food items from privet route."
+            image={bepaw}
+            github="https://github.com/ShahriarRefat0/Bepaw-pet-care.git"
+            demo="https://bepaw-pet-care.vercel.app/"
+            stack={[
+              "Tailwind",
+              "React.js",
+              "Firebase",
+              "Node.js",
+              "Express.js",
+              'DaisyUI'
+            ]}
+          />
+        </div>
+
+        
+       
       </div>
     </section>
   );
