@@ -3,6 +3,8 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import { motion } from 'framer-motion';
+import { SiTypescript } from "react-icons/si";
+
 import {
   SiHtml5, SiCss3, SiJavascript, SiReact, SiNodedotjs,
   SiExpress, SiNextdotjs, SiMongodb
@@ -86,9 +88,7 @@ const Skills = () => {
       <div
         className="relative bg-background-light/90 dark:bg-background-dark/95 min-h-screen flex flex-col items-center justify-center p-4 sm:p-6 lg:p-8">
         <section className="w-full max-w-4xl text-center mb-16">
-          {/* <div className="skills-header inline-flex items-center justify-center text-black dark:text-white mb-4">
-            <span className="material-icons-outlined text-4xl">code</span>
-          </div> */}
+       
           <h2 className="skills-header  text-3xl sm:text-4xl md:text-5xl font-bold text-black dark:text-white mb-2">{"[Skills]"}</h2>
           <p className="skills-header text-gray-600 dark:text-gray-400 mb-10">I am striving to never stop learning and improving_</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
@@ -187,7 +187,7 @@ const Skills = () => {
 
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-8 gap-6 justify-items-center">
+         <div className="flex items-center justify-center gap-6 overflow-x-auto whitespace-nowrap scrollbar-hide py-4">
 
             {/* HTML */}
             <div className="tech-icon flex flex-col items-center space-y-2">
@@ -223,6 +223,23 @@ const Skills = () => {
               </motion.div>
               <span className="text-sm font-medium text-gray-700 dark:text-gray-300">JavaScript</span>
             </div>
+
+            {/* TypeScript */}
+            <div className="tech-icon flex flex-col items-center space-y-2">
+              <motion.div
+                whileHover={{ scale: 1.2, rotate: 360 }}
+                transition={{ duration: 0.5 }}
+                className="w-16 h-16 bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 
+      rounded-full flex items-center justify-center backdrop-blur-sm grayscale 
+      hover:grayscale-0 transition-all duration-300"
+              >
+                <SiTypescript className="text-blue-600 w-8 h-8" />
+              </motion.div>
+              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                TypeScript
+              </span>
+            </div>
+
 
             {/* React */}
             <div className="tech-icon flex flex-col items-center space-y-2">
