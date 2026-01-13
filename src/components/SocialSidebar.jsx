@@ -6,6 +6,7 @@ const SocialSidebar = () => {
     <div
       id="social-sidebar"
       className="
+      
         fixed left-3 md:left-6 top-1/2 -translate-y-1/2
         z-50 flex flex-col space-y-4 
       "
