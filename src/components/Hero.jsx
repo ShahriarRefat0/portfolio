@@ -277,9 +277,7 @@ const Hero = () => {
                 alt="Profile"
                 className="
         w-full h-full object-cover
-        filter grayscale 
         transition-all duration-500 ease-in-out
-        group-hover:grayscale-0
       "
               />
             </div>
