@@ -264,6 +264,7 @@ const Hero = () => {
           <div
             className="
     relative z-0 
+    
     w-[150px] h-[150px]
     sm:w-[230px] sm:h-[230px]
     md:w-[300px] md:h-[300px]
