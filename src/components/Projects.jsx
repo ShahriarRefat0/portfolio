@@ -91,6 +91,8 @@ const Projects = () => {
         text-gray-800 dark:text-gray-200
       "
     >
+
+      
       {/* BACKGROUND PARTICLES */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         {[...Array(20)].map((_, i) => (
