@@ -72,7 +72,7 @@ const Hero = () => {
   return (
     <main
       ref={containerRef}
-      className="relative container mx-auto px-6 pt-40 pb-16 lg:pt-32 overflow-hidden"
+      className="relative container mx-auto px-6 overflow-hidden"
     >
       {/* Background Particles */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -148,7 +148,7 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
           >
             <motion.a
-              href="https://drive.google.com/file/d/1hg1OUyMveHAxata1rJvJ9ZTJ_dx-bk9r/view?usp=drive_link"
+              href="https://drive.google.com/file/d/1FQp7caZCAGWc5K1bLLJttMcPw39RQC6u/view?usp=drive_link"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.9 }}
               className="

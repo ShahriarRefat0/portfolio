@@ -4,11 +4,13 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import { motion } from 'framer-motion';
 import { SiTypescript } from "react-icons/si";
-
 import {
   SiHtml5, SiCss3, SiJavascript, SiReact, SiNodedotjs,
-  SiExpress, SiNextdotjs, SiMongodb
+  SiExpress, SiNextdotjs, SiMongodb,
+  SiPostgresql, SiPrisma, SiSupabase
 } from "react-icons/si";
+import { SiMongoose } from "react-icons/si";
+
 import {
   SiGit, SiGithub, SiFigma,
   SiTailwindcss, SiFirebase, SiVercel
@@ -70,7 +72,7 @@ const Skills = () => {
   return (
     <section
       ref={containerRef}
-      className="relative pt-36 container mx-auto font-display bg-background-light dark:bg-background-dark text-gray-800 dark:text-gray-200 overflow-hidden"
+      className="relative pt-36 container mx-auto max-w-7xl font-display bg-background-light dark:bg-background-dark text-gray-800 dark:text-gray-200 overflow-hidden"
     >
   {/* Background Particles */}
       <div className="absolute inset-0 z-10 pointer-events-none">
@@ -87,11 +89,11 @@ const Skills = () => {
       </div>
       <div
         className="relative bg-background-light/90 dark:bg-background-dark/95 min-h-screen flex flex-col items-center justify-center p-4 sm:p-6 lg:p-8">
-        <section className="w-full max-w-4xl text-center mb-16">
+        <section className="w-full max-w-7xl text-center mb-16">
        
           <h2 className="skills-header  text-3xl sm:text-4xl md:text-5xl font-bold text-black dark:text-white mb-2">{"[Skills]"}</h2>
           <p className="skills-header text-gray-600 dark:text-gray-400 mb-10">I am striving to never stop learning and improving_</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
 
             {/* ⭐ Frontend Development */}
             <motion.div
@@ -180,14 +182,14 @@ const Skills = () => {
                   Backend Development
                 </h3>
                 <p className="text-gray-600 dark:text-gray-400 text-sm">
-                  EXPRESS JS, NODE JS, MONGODB, FIREBASE, REST API, JWT
+                  EXPRESS JS, NODE JS, MONGODB, FIREBASE, REST API, JWT, Supabase, Prisma, Mongoose, PostgreSQL
                 </p>
               </div>
             </motion.div>
 
           </div>
 
-         <div className="flex items-center justify-center gap-6 overflow-x-auto whitespace-nowrap scrollbar-hide py-4">
+         <div className="flex flex-wrap justify-center lg:flex-nowrap md:gap-10 gap-5 py-4 overflow-x-auto">
 
             {/* HTML */}
             <div className="tech-icon flex flex-col items-center space-y-2">
@@ -296,16 +298,28 @@ const Skills = () => {
               <span className="text-sm font-medium text-gray-700 dark:text-gray-300">MongoDB</span>
             </div>
 
+{/* postgreSQL */}
+            <div className="tech-icon flex flex-col items-center space-y-2">
+  <motion.div whileHover={{ scale: 1.2, rotate: 360 }} transition={{ duration: 0.5 }}
+    className="w-16 h-16 bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 
+    rounded-full flex items-center justify-center backdrop-blur-sm grayscale 
+    hover:grayscale-0 transition-all duration-300">
+    <SiPostgresql className="text-blue-500 w-8 h-8" />
+  </motion.div>
+  <span className="text-sm font-medium text-gray-700 dark:text-gray-300">PostgreSQL</span>
+</div>
+
+
           </div>
 
         </section>
-        <section className="w-full max-w-4xl text-center pb-8">
+        <section className="w-full max-w-7xl text-center pb-8">
           <div className="skills-header inline-flex items-center justify-center text-black dark:text-white mb-4">
             <span className="material-icons-outlined text-4xl">build</span>
           </div>
           <h2 className="skills-header text-4xl sm:text-5xl font-bold text-black dark:text-white mb-2">Tools &amp; Technologies</h2>
           <p className="skills-header text-gray-600 dark:text-gray-400 mb-10">Tools I use to bring ideas to life</p>
-          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-7 gap-6 justify-items-center">
+          <div className="flex flex-wrap justify-center lg:flex-nowrap md:gap-10 gap-10 py-4 overflow-x-auto">
 
             {/* Git */}
             <div className="tech-icon flex flex-col items-center space-y-2">
@@ -385,6 +399,39 @@ const Skills = () => {
                 <SiVercel className="text-black dark:text-white w-12 h-12" />
               </motion.div>
               <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Vercel</span>
+            </div>
+
+            {/* Prisma */}
+            <div className="tech-icon flex flex-col items-center space-y-2">
+              <motion.div whileHover={{ scale: 1.2, rotate: 360 }} transition={{ duration: 0.5 }}
+                className="w-20 h-20 bg-gray-100 dark:bg-gray-900 border border-gray-200 
+                 dark:border-gray-800 rounded-lg flex items-center justify-center backdrop-blur-sm p-2 
+                 grayscale hover:grayscale-0 transition-all">
+                <SiPrisma className="text-white w-12 h-12" />
+              </motion.div>
+              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Prisma</span>
+            </div>
+
+            {/* Supabase */}
+            <div className="tech-icon flex flex-col items-center space-y-2">
+              <motion.div whileHover={{ scale: 1.2, rotate: 360 }} transition={{ duration: 0.5 }}
+                className="w-20 h-20 bg-gray-100 dark:bg-gray-900 border border-gray-200 
+                 dark:border-gray-800 rounded-lg flex items-center justify-center backdrop-blur-sm p-2 
+                 grayscale hover:grayscale-0 transition-all">
+                <SiSupabase className="text-green-400 w-12 h-12" />
+              </motion.div>
+              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Supabase</span>
+            </div>
+
+            {/* Mongoose */}
+            <div className="tech-icon flex flex-col items-center space-y-2">
+              <motion.div whileHover={{ scale: 1.2, rotate: 360 }} transition={{ duration: 0.5 }}
+                className="w-20 h-20 bg-gray-100 dark:bg-gray-900 border border-gray-200 
+                 dark:border-gray-800 rounded-lg flex items-center justify-center backdrop-blur-sm p-2 
+                 grayscale hover:grayscale-0 transition-all">
+                <SiMongoose className="text-red-600 w-12 h-12" />
+              </motion.div>
+              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Mongoose</span>
             </div>
 
           </div>

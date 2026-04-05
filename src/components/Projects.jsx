@@ -3,6 +3,7 @@ import ProjectCard from "./ProjectCard";
 import bepaw from "../assets/bepaw.png";
 import book2door from "../assets/book2door.png";
 import plateShare from "../assets/plateshare.png";
+import schoologyBD from "../assets/schoologyBD.png";
 import bloodBank from "../assets/bloodbank.png";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -82,9 +83,9 @@ const Projects = () => {
       id="projects"
       className="
         relative overflow-hidden 
-        pt-32 pb-20 
-        px-4 sm:px-6 md:px-8 
-        container mx-auto 
+        pt-20 
+        px-6 
+        container mx-auto max-w-7xl
         font-display 
         bg-background-light dark:bg-background-dark 
         text-gray-800 dark:text-gray-200
@@ -124,6 +125,22 @@ const Projects = () => {
         "
       >
         {/* Card 1 */}
+        <div className="project-card">
+          <ProjectCard
+            title="SchoologyBD"
+            description="A multi-tenant SaaS-based school management system with 6 role-based dashboards (Admin, Principal, Teacher, Student, Parents, Accountant). Features include online examinations, AI-powered bulk student import, and real-time data handling." 
+            image={schoologyBD} 
+            github="https://github.com/ShahriarRefat0/School-management.git"
+            demo="https://school-management-ruby-omega.vercel.app/"
+            stack={[
+              "Next.js",
+              "TypeScript",
+              "Supabase",
+              "Prisma ORM",
+              "Multi-tenant SaaS",
+            ]}
+          />
+        </div>
         <div className="project-card">
           <ProjectCard
             title="Book2Door"
@@ -166,6 +183,23 @@ const Projects = () => {
         </div>
 
         {/* Card 3 */}
+          <div className="project-card">
+          <ProjectCard
+            title="Bepaw Pet Care"
+            description="A modern winter pet care platform for pet owners to discover services, winter products, grooming options, and expert tips all in one place.Users can manage, update and delete their donated food items from privet route."
+            image={bepaw}
+            github="https://github.com/ShahriarRefat0/Bepaw-pet-care.git"
+            demo="https://bepaw-pet-care.vercel.app/"
+            stack={[
+              "Tailwind",
+              "React.js",
+              "Firebase",
+              "Node.js",
+              "Express.js",
+              'DaisyUI'
+            ]}
+          />
+        </div>
         <div className="project-card">
           <div className="w-full max-w-[580px]">
             <ProjectCard
@@ -187,23 +221,7 @@ const Projects = () => {
         </div>
 
         {/* Card - 4  */}
-        <div className="project-card">
-          <ProjectCard
-            title="Bepaw Pet Care"
-            description="A modern winter pet care platform for pet owners to discover services, winter products, grooming options, and expert tips all in one place.Users can manage, update and delete their donated food items from privet route."
-            image={bepaw}
-            github="https://github.com/ShahriarRefat0/Bepaw-pet-care.git"
-            demo="https://bepaw-pet-care.vercel.app/"
-            stack={[
-              "Tailwind",
-              "React.js",
-              "Firebase",
-              "Node.js",
-              "Express.js",
-              'DaisyUI'
-            ]}
-          />
-        </div>
+      
 
         
        

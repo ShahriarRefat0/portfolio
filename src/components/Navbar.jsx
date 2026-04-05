@@ -46,7 +46,7 @@ const Navbar = () => {
 
     <header
       ref={containerRef}
-      className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4"
+      className="fixed top-6 px-6 left-0 right-0 z-50 flex justify-center"
     >
       <motion.nav
         className="
@@ -56,7 +56,7 @@ const Navbar = () => {
         rounded-full
         px-6 py-3
         flex justify-between items-center
-        w-full max-w-5xl
+        w-full max-w-7xl
         shadow-[0_0_40px_rgba(255,255,255,0.35)]
         dark:shadow-[0_0_40px_rgba(255,255,255,0.35)]
       "
