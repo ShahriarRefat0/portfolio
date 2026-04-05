@@ -73,7 +73,7 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <div className="hidden lg:flex items-center space-x-6">
-          {["Home", "About", "Skills", "Projects", "Contact"].map((item) => (
+          {["Home", "About", "Skills", "Projects", "Certificates", "Contact"].map((item) => (
             <motion.button
               key={item}
               whileHover={{ scale: 1.05 }}
@@ -123,7 +123,7 @@ const Navbar = () => {
           space-y-8 lg:hidden
         "
         >
-          {["Home", "About", "Skills", "Projects", "Contact"].map((item) => (
+          {["Home", "About", "Skills", "Projects", "Certificates", "Contact"].map((item) => (
             <button
               key={item}
               onClick={() => scrollToSection(item.toLowerCase())}
