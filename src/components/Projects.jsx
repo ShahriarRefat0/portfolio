@@ -171,7 +171,7 @@ const Projects = () => {
             description="PlateShare is a full-stack MERN application that connects communities through food sharing. It allows users to donate surplus food and helps others find and request meals, reducing food waste while supporting those in need."
             image={plateShare}
             github="https://github.com/ShahriarRefat0/Plate-Share-client.git"
-            demo="https://plate-share-b21c8.web.app/"
+            demo="https://plate-share-client-nu.vercel.app/"
             stack={[
               "React",
               "Tailwind CSS",
