@@ -158,9 +158,6 @@ const form = useRef()
               Contact
             </h1>
 
-            <h2 className="contact-header text-3xl sm:text-4xl md:text-5xl font-bold text-black dark:text-white">
-              {"{Get In Touch}"}
-            </h2>
 
             <p className="contact-header mt-4 text-gray-600 dark:text-gray-400">
               Feel free to reach out — always open to work, <br /> collaborations, or a friendly chat.

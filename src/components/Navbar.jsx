@@ -18,17 +18,17 @@ const Navbar = () => {
     });
 
     // 🔥 Neon Glow Animation Using GSAP
-// gsap.to(".glow-nav", {
-//   boxShadow: `
-//     0 0 20px rgba(255,255,255,0.6),
-//     0 0 40px rgba(255,255,255,0.35),
-//     0 0 65px rgba(255,255,255,0.2)
-//   `,
-//   duration: 2.2,
-//   repeat: -1,
-//   yoyo: true,
-//   ease: "power2.inOut",
-// });
+    // gsap.to(".glow-nav", {
+    //   boxShadow: `
+    //     0 0 20px rgba(255,255,255,0.6),
+    //     0 0 40px rgba(255,255,255,0.35),
+    //     0 0 65px rgba(255,255,255,0.2)
+    //   `,
+    //   duration: 2.2,
+    //   repeat: -1,
+    //   yoyo: true,
+    //   ease: "power2.inOut",
+    // });
 
   }, { scope: containerRef });
 
@@ -73,7 +73,7 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <div className="hidden lg:flex items-center space-x-6">
-          {["Home", "About", "Skills", "Projects", "Certificates", "Contact"].map((item) => (
+          {["Home", "About", "Skills", "Experience", "Projects", "Certificates", "Contact"].map((item) => (
             <motion.button
               key={item}
               whileHover={{ scale: 1.05 }}
@@ -123,7 +123,7 @@ const Navbar = () => {
           space-y-8 lg:hidden
         "
         >
-          {["Home", "About", "Skills", "Projects", "Certificates", "Contact"].map((item) => (
+          {["Home", "About", "Skills", "Experience", "Projects", "Certificates", "Contact"].map((item) => (
             <button
               key={item}
               onClick={() => scrollToSection(item.toLowerCase())}
@@ -137,7 +137,7 @@ const Navbar = () => {
     </header>
   );
 
-  
+
 };
 
 export default Navbar;

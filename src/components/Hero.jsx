@@ -148,7 +148,7 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
           >
             <motion.a
-              href="https://drive.google.com/file/d/1FQp7caZCAGWc5K1bLLJttMcPw39RQC6u/view?usp=drive_link"
+              href="https://drive.google.com/file/d/1Ibq4J4nYSaTPtewh-xpIXxcEcZdJHR-E/view?usp=sharing"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.9 }}
               className="

@@ -3,11 +3,13 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
+import Experience from './components/Experience';
 import Contact from './components/Contact';
 import SocialSidebar from './components/SocialSidebar';
 import Projects from './components/Projects';
 import Certificates from './components/Certificates';
 import Footer from './components/Footer';
+
 function App() {  
   return (
     <div className="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-200 font-sans">
@@ -24,7 +26,9 @@ function App() {
       <div id="skills">
         <Skills />
       </div>
-     
+      <div id="experience">
+        <Experience />
+      </div>
       <div id="projects">
         <Projects />
       </div>

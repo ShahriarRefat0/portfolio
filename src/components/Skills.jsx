@@ -1,85 +1,204 @@
-import React, { useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useGSAP } from '@gsap/react';
-import { motion } from 'framer-motion';
-import { SiTypescript } from "react-icons/si";
-import {
-  SiHtml5, SiCss3, SiJavascript, SiReact, SiNodedotjs,
-  SiExpress, SiNextdotjs, SiMongodb,
-  SiPostgresql, SiPrisma, SiSupabase
-} from "react-icons/si";
-import { SiMongoose } from "react-icons/si";
+import React, { useRef, useState } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+import { motion } from "framer-motion";
 
-import {
-  SiGit, SiGithub, SiFigma,
-  SiTailwindcss, SiFirebase, SiVercel
-} from "react-icons/si";
-// import { RiVercelLine } from 'react-icons/ri';
-import { TbBrandVscode } from "react-icons/tb"; 
+// Category Icons
+import { LuMonitor, LuServer, LuCloud, LuWrench } from "react-icons/lu";
 
+// Frontend Icons
+import {
+  SiJavascript,
+  SiTypescript,
+  SiReact,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiBootstrap,
+  SiReactrouter,
+} from "react-icons/si";
+
+// Backend Icons
+import {
+  SiNodedotjs,
+  SiExpress,
+  SiNestjs,
+  SiMongodb,
+  SiFirebase,
+  SiPrisma,
+  SiMongoose,
+  SiPostgresql,
+  SiRedis,
+} from "react-icons/si";
+
+// DevOps & Cloud Icons
+import {
+  SiGit,
+  SiGithub,
+  SiDocker,
+  SiLinux,
+  SiVercel,
+  SiNetlify,
+  SiGithubactions,
+} from "react-icons/si";
+
+// Tools & Libraries Icons
+import {
+  SiPostman,
+  SiFigma,
+  SiAxios,
+  SiReactquery,
+  SiOpenai,
+} from "react-icons/si";
 
 gsap.registerPlugin(ScrollTrigger);
+
+const SKILL_CATEGORIES = [
+  {
+    id: "frontend",
+    title: "FRONTEND",
+    icon: LuMonitor,
+    skills: [
+      { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
+      { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
+      { name: "React.js", icon: SiReact, color: "#61DAFB" },
+      { name: "Next.js", icon: SiNextdotjs, color: "#00eaff" },
+      { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
+      { name: "Bootstrap", icon: SiBootstrap, color: "#7952B3" },
+      { name: "React Router", icon: SiReactrouter, color: "#CA4245" },
+    ],
+  },
+  {
+    id: "backend",
+    title: "BACKEND & DATABASES",
+    icon: LuServer,
+    skills: [
+      { name: "Node.js", icon: SiNodedotjs, color: "#5FA04E" },
+      { name: "Express.js", icon: SiExpress, color: "#9ca3af" },
+      { name: "NestJS", icon: SiNestjs, color: "#E0234E" },
+      { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
+      { name: "PostgreSQL", icon: SiPostgresql, color: "#4169E1" },
+      { name: "Redis", icon: SiRedis, color: "#DC382D" },
+      { name: "Firebase", icon: SiFirebase, color: "#FFCA28" },
+      { name: "Prisma", icon: SiPrisma, color: "#38BDF8" },
+      { name: "Mongoose", icon: SiMongoose, color: "#E53E3E" },
+    ],
+  },
+  {
+    id: "devops",
+    title: "DEVOPS & CLOUD",
+    icon: LuCloud,
+    skills: [
+      { name: "Docker", icon: SiDocker, color: "#2496ED" },
+      { name: "CI/CD", icon: SiGithubactions, color: "#2088FF" },
+      { name: "Git", icon: SiGit, color: "#F05032" },
+      { name: "GitHub", icon: SiGithub, color: "#9ca3af" },
+      { name: "Linux", icon: SiLinux, color: "#FCC624" },
+      { name: "Vercel", icon: SiVercel, color: "#00eaff" },
+      { name: "Netlify", icon: SiNetlify, color: "#00C7B7" },
+    ],
+  },
+  {
+    id: "tools",
+    title: "TOOLS & ARCHITECTURE",
+    icon: LuWrench,
+    skills: [
+      { name: "Postman", icon: SiPostman, color: "#FF6C37" },
+      { name: "Figma", icon: SiFigma, color: "#F24E1E" },
+      { name: "React-Query", icon: SiReactquery, color: "#FF4154" },
+      { name: "Axios", icon: SiAxios, color: "#5A29E4" },
+      { name: "Agentic AI", icon: SiOpenai, color: "#10A37F" },
+    ],
+  },
+];
+
+// Reusable individual skill pill with dynamic real-color hover
+const SkillPill = ({ skill }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const Icon = skill.icon;
+
+  return (
+    <motion.div
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      whileHover={{ y: -3, scale: 1.03 }}
+      whileTap={{ scale: 0.97 }}
+      transition={{ duration: 0.2 }}
+      className="
+        relative overflow-hidden group/pill flex items-center space-x-2.5
+        px-3.5 py-3 rounded-xl
+        bg-black/5 dark:bg-white/10
+        border border-black/10 dark:border-white/20
+        hover:border-black/30 dark:hover:border-white/40
+        hover:bg-black/10 dark:hover:bg-white/15
+        hover:shadow-md
+        transition-all duration-300 cursor-default
+      "
+    >
+      <Icon
+        className="text-xl flex-shrink-0 transition-all duration-300 text-slate-700 dark:text-slate-300"
+        style={{
+          color: isHovered ? skill.color : undefined,
+          filter: isHovered ? `drop-shadow(0 0 10px ${skill.color}90)` : "none",
+        }}
+      />
+      <span className="text-xs sm:text-sm font-medium text-slate-800 dark:text-slate-200 group-hover/pill:text-black dark:group-hover/pill:text-white transition-colors truncate">
+        {skill.name}
+      </span>
+    </motion.div>
+  );
+};
 
 const Skills = () => {
   const containerRef = useRef(null);
 
-  useGSAP(() => {
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top 80%",
-        end: "bottom 20%",
-        toggleActions: "play none none reverse"
-      }
-    });
+  useGSAP(
+    () => {
+      const section = containerRef.current;
+      if (!section) return;
 
-    tl.from(".skills-header", {
-      y: 30,
-      opacity: 0,
-      duration: 0.8,
-      stagger: 0.2,
-      ease: "power3.out"
-    })
-      // .from(".skill-card", {
-      //   y: 50,
-      //   opacity: 0,
-      //   duration: 0.8,
-      //   stagger: 0.1,
-      //   ease: "power3.out"
-      // }, "-=0.4")
-      .from(".tech-icon", {
-        scale: 0,
+      // Section headers animation (fires once reliably)
+      gsap.from(".skills-header", {
+        y: 25,
         opacity: 0,
-        duration: 0.5,
-        stagger: 0.05,
-        ease: "back.out(1.7)"
-      }, "-=0.4");
-    
-    containerRef.current.querySelectorAll(".particle").forEach((p) => {
-      gsap.to(p, {
-        x: "+=" + gsap.utils.random(-200, 200),
-        y: "+=" + gsap.utils.random(-200, 200),
-        duration: gsap.utils.random(6, 12),
-        ease: "none",
-        repeat: -1,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: section,
+          start: "top 85%",
+          once: true,
+        },
       });
-    });
-   
 
-  }, { scope: containerRef });
+      // Ambient particle floating
+      const particles = section.querySelectorAll(".skill-particle");
+      particles.forEach((p) => {
+        gsap.to(p, {
+          x: "+=" + gsap.utils.random(-80, 80),
+          y: "+=" + gsap.utils.random(-80, 80),
+          duration: gsap.utils.random(6, 12),
+          ease: "sine.inOut",
+          repeat: -1,
+          yoyo: true,
+        });
+      });
+    },
+    { scope: containerRef }
+  );
 
   return (
     <section
       ref={containerRef}
-      className="relative pt-36 container mx-auto max-w-7xl font-display bg-background-light dark:bg-background-dark text-gray-800 dark:text-gray-200 overflow-hidden"
+      id="skills"
+      className="relative pt-24 pb-20 container mx-auto max-w-7xl px-4 sm:px-6 overflow-hidden"
     >
-  {/* Background Particles */}
-      <div className="absolute inset-0 z-10 pointer-events-none">
-        {[...Array(20)].map((_, i) => (
+      {/* Ambient background particles */}
+      <div className="absolute inset-0 -z-10 pointer-events-none overflow-hidden">
+        {[...Array(16)].map((_, i) => (
           <span
             key={i}
-            className="particle absolute w-2 h-2 bg-white/40 rounded-full blur-[2px]"
+            className="skill-particle absolute w-2 h-2 bg-white/20 dark:bg-white/15 rounded-full blur-[2px]"
             style={{
               top: `${Math.random() * 100}%`,
               left: `${Math.random() * 100}%`,
@@ -87,363 +206,76 @@ const Skills = () => {
           />
         ))}
       </div>
-      <div
-        className="relative bg-background-light/90 dark:bg-background-dark/95 min-h-screen flex flex-col items-center justify-center p-4 sm:p-6 lg:p-8">
-        <section className="w-full max-w-7xl text-center mb-16">
-       
-          <h2 className="skills-header  text-3xl sm:text-4xl md:text-5xl font-bold text-black dark:text-white mb-2">{"[Skills]"}</h2>
-          <p className="skills-header text-gray-600 dark:text-gray-400 mb-10">I am striving to never stop learning and improving_</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
 
-            {/* ⭐ Frontend Development */}
-            <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
+      {/* Title */}
+      <div className="text-center mb-14 sm:mb-16">
+        <h2 className="skills-header text-3xl sm:text-4xl md:text-5xl font-bold font-display text-black dark:text-white tracking-tight">
+          {"<Skills/>"}
+        </h2>
+        <p className="skills-header text-gray-500 dark:text-gray-400 mt-3 text-base sm:text-lg">
+          Technical Stack & Capabilities_
+        </p>
+      </div>
+
+      {/* 2x2 Grid of Categorized Skill Cards styled consistently */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+        {SKILL_CATEGORIES.map((category, idx) => (
+          <motion.div
+            key={category.id}
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.5, delay: idx * 0.1 }}
+            className="
+              relative overflow-hidden group
+              bg-white/80 dark:bg-white/10
+              backdrop-blur-xl shadow-lg rounded-2xl p-6 sm:p-8
+              border border-white/40 dark:border-white/20
+              hover:border-white/60 dark:hover:border-white/40
+              transition-all duration-300 flex flex-col justify-between
+            "
+          >
+            {/* SHINE EFFECT (Matching Project Card) */}
+            <span
               className="
-      relative overflow-hidden group
-      bg-white/80 dark:bg-white/10
-      backdrop-blur-xl shadow-lg rounded-2xl p-6
-      flex items-center space-x-4 border border-white/40
-    "
-            >
-              {/* ✨ Shine Animation */}
-              <span
-                className="
-        absolute inset-0 bg-gradient-to-r 
-        from-transparent via-white/40 to-transparent
-        opacity-0 group-hover:opacity-100
-        translate-x-[-100%] group-hover:translate-x-[100%]
-        transition-all duration-700 ease-out pointer-events-none
-      "
-              ></span>
+                absolute inset-0 bg-gradient-to-r 
+                from-transparent via-white/40 dark:via-white/15 to-transparent
+                opacity-0 group-hover:opacity-100
+                translate-x-[-100%] group-hover:translate-x-[100%]
+                transition-all duration-700 ease-out pointer-events-none
+              "
+            />
 
-              {/* ICON */}
-              <span
-                className="
-        material-icons-outlined text-black dark:text-white text-3xl mt-1
-        p-4 rounded-full
-        bg-white/30 dark:bg-white/10
-       
-        
-      "
-              >
-                web
-              </span>
-
-              <div>
-                <h3 className="font-bold text-lg text-gray-900 dark:text-white">
-                  Frontend Development
-                </h3>
-                <p className="text-gray-600 dark:text-gray-400 text-sm">
-                  HTML, CSS, JS, REACT JS, NEXT JS
-                </p>
+            {/* Card Top Header */}
+            <div>
+              <div className="relative z-10 flex items-center justify-between pb-5 border-b border-black/10 dark:border-white/15">
+                <div className="flex items-center space-x-3">
+                  {category.icon && (
+                    <div className="w-8 h-8 rounded-lg bg-black/5 dark:bg-white/10 flex items-center justify-center text-slate-800 dark:text-white border border-black/5 dark:border-white/15 shadow-sm">
+                      <category.icon className="text-base" />
+                    </div>
+                  )}
+                  <span className="font-mono text-xs sm:text-sm font-bold tracking-wider text-slate-900 dark:text-white uppercase bg-black/5 dark:bg-white/15 px-3 py-1 rounded-lg border border-black/5 dark:border-white/20">
+                    {category.title}
+                  </span>
+                </div>
+                <span className="w-7 h-7 rounded-full bg-black/5 dark:bg-white/10 border border-black/10 dark:border-white/20 text-xs font-mono font-semibold flex items-center justify-center text-slate-700 dark:text-slate-300">
+                  {category.skills.length}
+                </span>
               </div>
-            </motion.div>
 
-            {/* ⭐ Backend Development */}
-            <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7 }}
-              className="
-      relative overflow-hidden group
-      bg-white/80 dark:bg-white/10
-      backdrop-blur-xl shadow-lg rounded-2xl p-6
-      flex items-center space-x-4 border border-white/40
-    "
-            >
-              {/* ✨ Shine Animation */}
-              <span
-                className="
-        absolute inset-0 bg-gradient-to-r 
-        from-transparent via-white/40 to-transparent
-        opacity-0 group-hover:opacity-100
-        translate-x-[-100%] group-hover:translate-x-[100%]
-        transition-all duration-700 ease-out pointer-events-none
-      "
-              ></span>
-
-              {/* ICON */}
-              <span
-                className="
-        material-icons-outlined text-black dark:text-white text-3xl mt-1
-        p-4 rounded-full
-        bg-white/30 dark:bg-white/10
-        
-        
-      "
-              >
-                storage
-              </span>
-
-              <div >
-                <h3 className="font-bold text-lg text-gray-900 dark:text-white">
-                  Backend Development
-                </h3>
-                <p className="text-gray-600 dark:text-gray-400 text-sm">
-                  EXPRESS JS, NODE JS, MONGODB, FIREBASE, REST API, JWT, Supabase, Prisma, Mongoose, PostgreSQL
-                </p>
+              {/* Skills Pills Grid */}
+              <div className="relative z-10 grid grid-cols-2 sm:grid-cols-3 gap-3 pt-6">
+                {category.skills.map((skill) => (
+                  <SkillPill key={skill.name} skill={skill} />
+                ))}
               </div>
-            </motion.div>
-
-          </div>
-
-         <div className="flex flex-wrap justify-center lg:flex-nowrap md:gap-10 gap-5 py-4 overflow-x-auto">
-
-            {/* HTML */}
-            <div className="tech-icon flex flex-col items-center space-y-2">
-              <motion.div
-                whileHover={{ scale: 1.2, rotate: 360 }}
-                transition={{ duration: 0.5 }}
-                className="w-16 h-16 bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 
-                 rounded-full flex items-center justify-center backdrop-blur-sm grayscale 
-                 hover:grayscale-0 transition-all duration-300">
-                <SiHtml5 className="text-orange-500 w-8 h-8" />
-              </motion.div>
-              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">HTML</span>
             </div>
-
-            {/* CSS */}
-            <div className="tech-icon flex flex-col items-center space-y-2">
-              <motion.div whileHover={{ scale: 1.2, rotate: 360 }} transition={{ duration: 0.5 }}
-                className="w-16 h-16 bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 
-                 rounded-full flex items-center justify-center backdrop-blur-sm grayscale 
-                 hover:grayscale-0 transition-all duration-300">
-                <SiCss3 className="text-blue-500 w-8 h-8" />
-              </motion.div>
-              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">CSS</span>
-            </div>
-
-            {/* JS */}
-            <div className="tech-icon flex flex-col items-center space-y-2">
-              <motion.div whileHover={{ scale: 1.2, rotate: 360 }} transition={{ duration: 0.5 }}
-                className="w-16 h-16 bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 
-                 rounded-full flex items-center justify-center backdrop-blur-sm grayscale 
-                 hover:grayscale-0 transition-all duration-300">
-                <SiJavascript className="text-yellow-400 w-8 h-8" />
-              </motion.div>
-              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">JavaScript</span>
-            </div>
-
-            {/* TypeScript */}
-            <div className="tech-icon flex flex-col items-center space-y-2">
-              <motion.div
-                whileHover={{ scale: 1.2, rotate: 360 }}
-                transition={{ duration: 0.5 }}
-                className="w-16 h-16 bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 
-      rounded-full flex items-center justify-center backdrop-blur-sm grayscale 
-      hover:grayscale-0 transition-all duration-300"
-              >
-                <SiTypescript className="text-blue-600 w-8 h-8" />
-              </motion.div>
-              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                TypeScript
-              </span>
-            </div>
-
-
-            {/* React */}
-            <div className="tech-icon flex flex-col items-center space-y-2">
-              <motion.div whileHover={{ scale: 1.2, rotate: 360 }} transition={{ duration: 0.5 }}
-                className="w-16 h-16 bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 
-                 rounded-full flex items-center justify-center backdrop-blur-sm grayscale 
-                 hover:grayscale-0 transition-all duration-300">
-                <SiReact className="text-blue-400 w-8 h-8" />
-              </motion.div>
-              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">React JS</span>
-            </div>
-
-            {/* Node */}
-            <div className="tech-icon flex flex-col items-center space-y-2">
-              <motion.div whileHover={{ scale: 1.2, rotate: 360 }} transition={{ duration: 0.5 }}
-                className="w-16 h-16 bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 
-                 rounded-full flex items-center justify-center backdrop-blur-sm grayscale 
-                 hover:grayscale-0 transition-all duration-300">
-                <SiNodedotjs className="text-green-600 w-8 h-8" />
-              </motion.div>
-              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Node.js</span>
-            </div>
-
-            {/* Express */}
-            <div className="tech-icon flex flex-col items-center space-y-2">
-              <motion.div whileHover={{ scale: 1.2, rotate: 360 }} transition={{ duration: 0.5 }}
-                className="w-16 h-16 bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 
-                 rounded-full flex items-center justify-center backdrop-blur-sm grayscale 
-                 hover:grayscale-0 transition-all duration-300">
-                <SiExpress className="text-gray-300 w-8 h-8" />
-              </motion.div>
-              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Express</span>
-            </div>
-
-            {/* Next.js */}
-            <div className="tech-icon flex flex-col items-center space-y-2">
-              <motion.div whileHover={{ scale: 1.2, rotate: 360 }} transition={{ duration: 0.5 }}
-                className="w-16 h-16 bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 
-                 rounded-full flex items-center justify-center backdrop-blur-sm grayscale 
-                 hover:grayscale-0 transition-all duration-300">
-                <SiNextdotjs className="text-white w-8 h-8" />
-              </motion.div>
-              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Next.js</span>
-            </div>
-
-            {/* MongoDB */}
-            <div className="tech-icon flex flex-col items-center space-y-2">
-              <motion.div whileHover={{ scale: 1.2, rotate: 360 }} transition={{ duration: 0.5 }}
-                className="w-16 h-16 bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 
-                 rounded-full flex items-center justify-center backdrop-blur-sm grayscale 
-                 hover:grayscale-0 transition-all duration-300">
-                <SiMongodb className="text-green-500 w-8 h-8" />
-              </motion.div>
-              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">MongoDB</span>
-            </div>
-
-{/* postgreSQL */}
-            <div className="tech-icon flex flex-col items-center space-y-2">
-  <motion.div whileHover={{ scale: 1.2, rotate: 360 }} transition={{ duration: 0.5 }}
-    className="w-16 h-16 bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 
-    rounded-full flex items-center justify-center backdrop-blur-sm grayscale 
-    hover:grayscale-0 transition-all duration-300">
-    <SiPostgresql className="text-blue-500 w-8 h-8" />
-  </motion.div>
-  <span className="text-sm font-medium text-gray-700 dark:text-gray-300">PostgreSQL</span>
-</div>
-
-
-          </div>
-
-        </section>
-        <section className="w-full max-w-7xl text-center pb-8">
-          <div className="skills-header inline-flex items-center justify-center text-black dark:text-white mb-4">
-            <span className="material-icons-outlined text-4xl">build</span>
-          </div>
-          <h2 className="skills-header text-4xl sm:text-5xl font-bold text-black dark:text-white mb-2">Tools &amp; Technologies</h2>
-          <p className="skills-header text-gray-600 dark:text-gray-400 mb-10">Tools I use to bring ideas to life</p>
-          <div className="flex flex-wrap justify-center lg:flex-nowrap md:gap-10 gap-10 py-4 overflow-x-auto">
-
-            {/* Git */}
-            <div className="tech-icon flex flex-col items-center space-y-2">
-              <motion.div
-                whileHover={{ scale: 1.2, rotate: 360 }}
-                transition={{ duration: 0.5 }}
-                className="w-20 h-20 bg-gray-100 dark:bg-gray-900 border border-gray-200 
-                 dark:border-gray-800 rounded-lg flex items-center justify-center
-                 backdrop-blur-sm p-2 grayscale hover:grayscale-0 transition-all"
-              >
-                <SiGit className="text-orange-600 w-12 h-12" />
-              </motion.div>
-              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Git</span>
-            </div>
-
-            {/* GitHub */}
-            <div className="tech-icon flex flex-col items-center space-y-2">
-              <motion.div whileHover={{ scale: 1.2, rotate: 360 }} transition={{ duration: 0.5 }}
-                className="w-20 h-20 bg-gray-100 dark:bg-gray-900 border border-gray-200 
-                 dark:border-gray-800 rounded-lg flex items-center justify-center backdrop-blur-sm p-2 
-                 grayscale hover:grayscale-0 transition-all">
-                <SiGithub className="text-gray-800 dark:text-white w-12 h-12" />
-              </motion.div>
-              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">GitHub</span>
-            </div>
-
-            {/* VS Code */}
-            <div className="tech-icon flex flex-col items-center space-y-2">
-              <motion.div whileHover={{ scale: 1.2, rotate: 360 }} transition={{ duration: 0.5 }}
-                className="w-20 h-20 bg-gray-100 dark:bg-gray-900 border border-gray-200 
-                 dark:border-gray-800 rounded-lg flex items-center justify-center backdrop-blur-sm p-2 
-                 grayscale hover:grayscale-0 transition-all">
-                <TbBrandVscode  className="text-blue-500 w-12 h-12" />
-              </motion.div>
-              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">VS Code</span>
-            </div>
-
-            {/* Figma */}
-            <div className="tech-icon flex flex-col items-center space-y-2">
-              <motion.div whileHover={{ scale: 1.2, rotate: 360 }} transition={{ duration: 0.5 }}
-                className="w-20 h-20 bg-gray-100 dark:bg-gray-900 border border-gray-200 
-                 dark:border-gray-800 rounded-lg flex items-center justify-center backdrop-blur-sm p-2 
-                 grayscale hover:grayscale-0 transition-all">
-                <SiFigma className="text-pink-500 w-12 h-12" />
-              </motion.div>
-              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Figma</span>
-            </div>
-
-            {/* Tailwind CSS */}
-            <div className="tech-icon flex flex-col items-center space-y-2">
-              <motion.div whileHover={{ scale: 1.2, rotate: 360 }} transition={{ duration: 0.5 }}
-                className="w-20 h-20 bg-gray-100 dark:bg-gray-900 border border-gray-200 
-                 dark:border-gray-800 rounded-lg flex items-center justify-center backdrop-blur-sm p-2 
-                 grayscale hover:grayscale-0 transition-all">
-                <SiTailwindcss className="text-cyan-400 w-12 h-12" />
-              </motion.div>
-              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Tailwind</span>
-            </div>
-
-            {/* Firebase */}
-            <div className="tech-icon flex flex-col items-center space-y-2">
-              <motion.div whileHover={{ scale: 1.2, rotate: 360 }} transition={{ duration: 0.5 }}
-                className="w-20 h-20 bg-gray-100 dark:bg-gray-900 border border-gray-200 
-                 dark:border-gray-800 rounded-lg flex items-center justify-center backdrop-blur-sm p-2 
-                 grayscale hover:grayscale-0 transition-all">
-                <SiFirebase className="text-yellow-500 w-12 h-12" />
-              </motion.div>
-              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Firebase</span>
-            </div>
-
-            {/* Vercel */}
-            <div className="tech-icon flex flex-col items-center space-y-2">
-              <motion.div whileHover={{ scale: 1.2, rotate: 360 }} transition={{ duration: 0.5 }}
-                className="w-20 h-20 bg-gray-100 dark:bg-gray-900 border border-gray-200 
-                 dark:border-gray-800 rounded-lg flex items-center justify-center backdrop-blur-sm p-2 
-                 grayscale hover:grayscale-0 transition-all">
-                <SiVercel className="text-black dark:text-white w-12 h-12" />
-              </motion.div>
-              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Vercel</span>
-            </div>
-
-            {/* Prisma */}
-            <div className="tech-icon flex flex-col items-center space-y-2">
-              <motion.div whileHover={{ scale: 1.2, rotate: 360 }} transition={{ duration: 0.5 }}
-                className="w-20 h-20 bg-gray-100 dark:bg-gray-900 border border-gray-200 
-                 dark:border-gray-800 rounded-lg flex items-center justify-center backdrop-blur-sm p-2 
-                 grayscale hover:grayscale-0 transition-all">
-                <SiPrisma className="text-white w-12 h-12" />
-              </motion.div>
-              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Prisma</span>
-            </div>
-
-            {/* Supabase */}
-            <div className="tech-icon flex flex-col items-center space-y-2">
-              <motion.div whileHover={{ scale: 1.2, rotate: 360 }} transition={{ duration: 0.5 }}
-                className="w-20 h-20 bg-gray-100 dark:bg-gray-900 border border-gray-200 
-                 dark:border-gray-800 rounded-lg flex items-center justify-center backdrop-blur-sm p-2 
-                 grayscale hover:grayscale-0 transition-all">
-                <SiSupabase className="text-green-400 w-12 h-12" />
-              </motion.div>
-              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Supabase</span>
-            </div>
-
-            {/* Mongoose */}
-            <div className="tech-icon flex flex-col items-center space-y-2">
-              <motion.div whileHover={{ scale: 1.2, rotate: 360 }} transition={{ duration: 0.5 }}
-                className="w-20 h-20 bg-gray-100 dark:bg-gray-900 border border-gray-200 
-                 dark:border-gray-800 rounded-lg flex items-center justify-center backdrop-blur-sm p-2 
-                 grayscale hover:grayscale-0 transition-all">
-                <SiMongoose className="text-red-600 w-12 h-12" />
-              </motion.div>
-              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Mongoose</span>
-            </div>
-
-          </div>
-
-        </section>
-        <div className="absolute bottom-0 left-0 right-0 h-12 bg-repeat-x"
-          style={{ backgroundImage: 'radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px)', backgroundSize: '1rem 1rem' }}>
-        </div>
+          </motion.div>
+        ))}
       </div>
     </section>
   );
 };
 
 export default Skills;
-
