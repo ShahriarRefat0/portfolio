@@ -3,7 +3,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { motion } from "framer-motion";
-import { FaExternalLinkAlt } from "react-icons/fa";
+import { FaExternalLinkAlt, FaAward } from "react-icons/fa";
 
 // Certificate Assets
 import typescript from "../assets/typescritp.png";
@@ -26,10 +26,10 @@ const CERTIFICATES_DATA = [
     link: "https://drive.google.com/file/d/1f1x_sklWmd8I93HuM1xpHb9vlDmg4WR6/view?usp=drive_link",
   },
   {
-    title: "freeCodeCamp Certification",
+    title: "Responsive Web Design Certification",
     issuer: "freeCodeCamp",
     image: freecodecamp,
-    link: "https://www.freecodecamp.org/",
+    link: "https://www.freecodecamp.org/certification/shahriar_refat/responsive-web-design-v9",
   },
 ];
 
@@ -104,7 +104,7 @@ const Certificates = () => {
         {[...Array(16)].map((_, i) => (
           <span
             key={i}
-            className="particle absolute w-2 h-2 bg-white/40 dark:bg-white/15 rounded-full blur-[2px]"
+            className="particle absolute w-2 h-2 bg-cyan-400/20 dark:bg-white/15 rounded-full blur-[2px]"
             style={{
               top: `${Math.random() * 100}%`,
               left: `${Math.random() * 100}%`,
@@ -124,23 +124,13 @@ const Certificates = () => {
       </div>
 
       {/* CERTIFICATES GRID */}
-      <div
-        className="
-          relative z-10 grid 
-          gap-8 sm:gap-10 
-          grid-cols-1 
-          md:grid-cols-2 
-          lg:grid-cols-3
-          justify-center
-          mb-8
-        "
-      >
+      <div className="relative z-10 grid gap-8 sm:gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center mb-8">
         {CERTIFICATES_DATA.map((cert, index) => (
           <motion.div
             key={index}
-            initial={{ opacity: 0, y: 25 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
+            viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.5, delay: index * 0.15 }}
             className="flex flex-col h-full"
           >
@@ -148,7 +138,7 @@ const Certificates = () => {
               className="
                 relative overflow-hidden group
                 bg-white/80 dark:bg-white/10
-                backdrop-blur-xl shadow-lg rounded-3xl 
+                backdrop-blur-xl shadow-lg rounded-3xl p-5 sm:p-6
                 border border-white/40 dark:border-white/20
                 hover:border-white/60 dark:hover:border-white/40
                 h-full flex flex-col justify-between
@@ -166,50 +156,54 @@ const Certificates = () => {
                 "
               />
 
-              {/* CERTIFICATE IMAGE */}
-              <div className="relative overflow-hidden rounded-t-3xl bg-gray-100 dark:bg-black/30 h-64 sm:h-72 flex items-center justify-center p-2">
-                <img
-                  src={cert.image}
-                  alt={cert.title}
-                  className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
-                />
-              </div>
+              <div>
+                {/* CERTIFICATE IMAGE */}
+                <div className="relative overflow-hidden rounded-2xl bg-gray-100 dark:bg-black/40 h-56 sm:h-60 flex items-center justify-center p-3 border border-black/5 dark:border-white/10 mb-5">
+                  <img
+                    src={cert.image}
+                    alt={cert.title}
+                    className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <span className="absolute top-3 right-3 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-black/70 backdrop-blur-md text-cyan-300 border border-cyan-500/30 flex items-center space-x-1 shadow-sm">
+                    <FaAward className="text-[10px]" />
+                    <span>Verified</span>
+                  </span>
+                </div>
 
-              {/* CONTENT */}
-              <div className="p-6 sm:p-7 flex flex-col justify-between flex-grow">
+                {/* CONTENT */}
                 <div className="mb-6">
                   {cert.issuer && (
-                    <span className="text-xs font-semibold text-cyan-600 dark:text-cyan-400 mb-1.5 block">
+                    <span className="text-xs font-semibold text-cyan-600 dark:text-cyan-400 mb-1.5 block tracking-wide">
                       {cert.issuer}
                     </span>
                   )}
-                  <h3 className="text-xl sm:text-2xl font-bold font-display text-gray-900 dark:text-white leading-snug">
+                  <h3 className="text-xl sm:text-2xl font-bold font-display text-gray-900 dark:text-white leading-snug group-hover:text-cyan-500 dark:group-hover:text-cyan-300 transition-colors">
                     {cert.title}
                   </h3>
                 </div>
-
-                {/* VIEW CERTIFICATE BUTTON */}
-                <motion.a
-                  href={cert.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="
-                    relative overflow-hidden group/button
-                    inline-flex items-center justify-center
-                    bg-white border border-white
-                    text-black font-semibold px-8 py-3.5 rounded-full text-sm
-                    shadow-[0_0_15px_rgba(255,255,255,0.3)]
-                    w-full
-                  "
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.97 }}
-                >
-                  <span className="absolute inset-0 bg-black translate-x-[-100%] group-hover/button:translate-x-0 transition-all duration-500" />
-                  <span className="relative z-10 flex items-center justify-center gap-2 group-hover/button:text-white">
-                    <FaExternalLinkAlt className="w-3.5 h-3.5" /> View Certificate
-                  </span>
-                </motion.a>
               </div>
+
+              {/* VIEW CERTIFICATE BUTTON */}
+              <motion.a
+                href={cert.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="
+                  relative overflow-hidden group/button
+                  inline-flex items-center justify-center
+                  bg-white border border-white
+                  text-black font-semibold px-6 py-3.5 rounded-full text-sm
+                  shadow-[0_0_15px_rgba(255,255,255,0.3)]
+                  w-full
+                "
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+              >
+                <span className="absolute inset-0 bg-black translate-x-[-100%] group-hover/button:translate-x-0 transition-all duration-500" />
+                <span className="relative z-10 flex items-center justify-center gap-2 group-hover/button:text-white">
+                  <FaExternalLinkAlt className="w-3.5 h-3.5" /> View Certificate
+                </span>
+              </motion.a>
             </div>
           </motion.div>
         ))}
