@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 
 // Category Icons
 import { LuMonitor, LuServer, LuCloud, LuWrench } from "react-icons/lu";
+import { TbSparkles } from "react-icons/tb";
 
 // Frontend Icons
 import {
@@ -48,7 +49,6 @@ import {
   SiFigma,
   SiAxios,
   SiReactquery,
-  SiOpenai,
 } from "react-icons/si";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -107,7 +107,7 @@ const SKILL_CATEGORIES = [
       { name: "Figma", icon: SiFigma, color: "#F24E1E" },
       { name: "React-Query", icon: SiReactquery, color: "#FF4154" },
       { name: "Axios", icon: SiAxios, color: "#5A29E4" },
-      { name: "Agentic AI", icon: SiOpenai, color: "#10A37F" },
+      { name: "Agentic AI", icon: TbSparkles, color: "#10A37F" },
     ],
   },
 ];
